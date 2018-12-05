@@ -44,22 +44,35 @@ body {
     margin: 0;
 }
 #login_form {
+    margin: 10%;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 input {
-    width: 20%;
+    width: 25%;
     height: 50%;
     border-left: none;
     border-right: none;
     border-top: none;
-    border-bottom: 1px solid #e65c00;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ac7c4f;
     margin-bottom: 10px;
 }
+input:hover{
+	border-bottom:1px solid #000000;
+}
 button {
-
+  background-color:#000000;
+  color:white;
+  font-size: 1.1em;
+  border: 0;
+  cursor:pointer;
+  padding: 1em;
+  text-align:center;
+  transition: .2s ease-in-out;
 }
 </style>
 
