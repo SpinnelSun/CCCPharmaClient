@@ -1,7 +1,6 @@
 /node_modules/
 /coverage/
 /exploration/
-/dist/
 
 test/e2e/screenshots
 /test/e2e/reports
