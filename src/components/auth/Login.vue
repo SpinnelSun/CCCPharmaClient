@@ -2,7 +2,7 @@
     <form @submit.prevent="login" id="login_form">
         <h2>Please Signin</h2>
         <label for="input_email"> Email</label>
-        <input v-model="email" type="email" id="input_email" required/>
+        <input v-model="email" id="input_email" required/>
         <label for="input_password">Password</label>
         <input v-model="password" type="password" id="input_password" required/>
         <button>Sign in</button>
@@ -21,16 +21,16 @@ export default {
     },
     methods: {
         login () {
-            http.post('/login', { email: this.email, password: this.password })
+            http.post('/auth/signin', { email: this.email, password: this.password })
                 .then(request => this.loginSucessful(request))
-                .catch(() => this.loginFailed());
+                .catch(error => this.loginFailed(error));
         },
         loginSucessful(req) {
             localStorage.token = req.data.token;
             console.log(req.data.token);
         },
-        loginFailed () {
-            console.log('Error');
+        loginFailed (error) {
+            console.log(error);
         }
     } 
 }
