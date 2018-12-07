@@ -1,18 +1,18 @@
 <template>
-    <user-form title="Sign up" v-on:handleSubmit="handleSubmit">
+    <user-form title="Sign in" v-on:handleSubmit="handleSubmit">
     </user-form>
 </template>
 
 <script>
-import { signup } from '@/services/userService'
+import { signin } from '@/services/authService'
 import UserForm from '@/components/user/UserForm'
 
 export default {
-    name: 'UserSignup',
+    name: 'Signin',
     methods: {
         handleSubmit (user) {
-           signup(user);
-        },
+            signin(user);
+        }
     },
     components: {
         UserForm

@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit.prevent="$emit('handleSubmit', user)" id="form">
+    <form v-on:submit.prevent="$emit('handleSubmit', user)">
         <label for="input_email"> Email</label>
         <input v-model="user.email" id="input_email" required/>
         <label for="input_password">Password</label>
@@ -28,7 +28,7 @@ body {
     font-weight: 400;
     margin: 0;
 }
-#form {
+form {
     margin: 10%;
     padding: 1%;
     display: flex;
