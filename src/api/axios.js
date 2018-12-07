@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'https://cccpharma-server.herokuapp.com';
 
+
 const http = axios.create({
     baseURL: API_URL,
     headers: {
@@ -11,5 +12,6 @@ const http = axios.create({
         'Authorization': `Bearer ${localStorage.token}`
     }
 })
+
 
 export default http;
