@@ -10,8 +10,9 @@ import UserForm from '@/components/user/UserForm'
 export default {
     name: 'UserSignup',
     methods: {
-        handleSubmit (user) {
-           signup(user);
+        async handleSubmit (user) {
+          const response = await signup(user);
+          console.log(response);
         },
     },
     components: {

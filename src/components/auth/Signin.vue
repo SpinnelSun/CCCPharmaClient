@@ -10,8 +10,8 @@ import UserForm from '@/components/user/UserForm'
 export default {
     name: 'Signin',
     methods: {
-        handleSubmit (user) {
-            signin(user);
+        async handleSubmit (user) {
+            const response = await signin(user);
             this.$router.replace(this.$route.query.redirect || '/home')
         }
     },
