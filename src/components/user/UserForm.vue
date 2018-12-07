@@ -16,7 +16,10 @@ export default {
     },
     data() {
         return {
-            user: {}
+            user: {
+                email: '',
+                password: ''
+            }
         }
     }
 }
@@ -28,6 +31,7 @@ body {
     font-weight: 400;
     margin: 0;
 }
+
 form {
     margin: 10%;
     padding: 1%;
@@ -36,6 +40,7 @@ form {
     align-items: center;
     justify-content: center;
 }
+
 input {
     width: 25%;
     height: 50%;
@@ -46,9 +51,11 @@ input {
     border-bottom: 1px solid #ac7c4f;
     margin-bottom: 10px;
 }
+
 input:hover{
-	border-bottom:1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
+
 button {
   background-color:#000000;
   color:white;
