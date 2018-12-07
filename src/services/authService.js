@@ -10,11 +10,13 @@ const signin = (user) => {
 
 const signinSucessful =  (response) => {
     localStorage.token = response.data.token;
-    console.log(response.data.token);
+    localStorage.authorities = response.data.roles[0].name;
+    console.log(response.data);
 }
 
 const signinFailed = (error) => {
-    console.log(error);
+    console.log('oi')
+    console.log(error.response);
 }
 
 export {

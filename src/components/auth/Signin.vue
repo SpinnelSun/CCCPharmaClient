@@ -12,6 +12,7 @@ export default {
     methods: {
         handleSubmit (user) {
             signin(user);
+            this.$router.replace(this.$route.query.redirect || '/home')
         }
     },
     components: {
