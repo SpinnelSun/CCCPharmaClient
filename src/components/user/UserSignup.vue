@@ -9,10 +9,16 @@ import UserForm from '@/components/user/UserForm'
 
 export default {
     name: 'UserSignup',
+    data() {
+        return {
+            error: false
+        }
+    },
     methods: {
         async handleSubmit (user) {
+          const HTTP_STATUS_CREATED = 201;
           const response = await signup(user);
-          console.log(response);
+          this.error = response.status != HTTP_STATUS_CREATED;
         },
     },
     components: {

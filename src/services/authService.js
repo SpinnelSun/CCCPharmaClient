@@ -11,7 +11,7 @@ const signin = (user) => {
 const signinSucessful =  (response) => {
     localStorage.token = response.data.token;
     localStorage.authorities = response.data.roles[0].name;
-    return response.data;
+    return response;
 }
 
 const signinFailed = (error) => {
