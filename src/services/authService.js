@@ -9,8 +9,9 @@ const signin = (user) => {
 }
 
 const signinSucessful =  (response) => {
-    localStorage.token = response.data.token;
-    localStorage.authorities = response.data.roles[0].name;
+    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('authority', response.data.roles[0].name);
+
     return response;
 }
 
@@ -18,6 +19,12 @@ const signinFailed = (error) => {
     return error.response;
 }
 
+const logout =  () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('authority');
+}
+
 export {
-    signin
+    signin,
+    logout
 }
