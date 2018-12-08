@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
+import ProductList from '@/components/product/ProductList'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ const router =  new Router({
       path: '/signup',
       name: 'Signup',
       component: UserSignup
+    },
+    {
+      path: '/products',
+      name: 'ProductList',
+      component: ProductList
     }
   ]
 })
