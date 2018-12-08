@@ -33,10 +33,10 @@ const router =  new Router({
 
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)){
-    if(!localStorage.token) {
+    if(!localStorage.getItem('token')) {
       next({ path: '/signin' })
     }else{
-      const authorityUser = localStorage.authority;
+      const authorityUser = localStorage.getItem('authority');
       if(to.matched.some(record => record.meta.is_admin)){
         if(authorityUser == 'ROLE_ADMIN') {
           next()
