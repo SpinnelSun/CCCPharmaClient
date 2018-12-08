@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { signin } from '@/services/authService'
+import { signin, logout } from '@/services/authService'
 import UserForm from '@/components/user/UserForm'
 
 export default {
