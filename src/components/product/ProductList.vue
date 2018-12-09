@@ -2,11 +2,12 @@
     <div id="app" class="columns">
         <div class="column">
             <ul>
-                <li id="component"> <product-component v-for="product in products" v-bind:product="product"> </product-component> </li>
+                <li id="component"> <product-component v-for="product in products" :key="product.id" v-bind:product="product"> </product-component> </li>
             </ul>
         </div>
     </div>
 </template>
+
 
 <script>
     import ProductComponent from '@/components/product/ProductComponent'
@@ -16,7 +17,10 @@
         name: 'ProductList',
         data() {
             return {
-                products : [{name: "camisinha", price: 2.75},{  name: "camisinha",price: 2.85},{ name: "camisinha",price: 2.85}]
+                products : [{name: "camisinha", price: 2.75, id:'1', avaliable: false},
+                {  name: "camisinha",price: 2.85, id:'2', avaliable: true},
+                { name: "camisinha",price: 2.85, id:'3', avaliable: true}, 
+                {name: "camisinha", price: 2.75, id:'4', avaliable: false}]
             }
         },
         components: {
