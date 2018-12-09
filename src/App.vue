@@ -2,6 +2,7 @@
   <div id="app">
     <router-link to="/signin">Login</router-link>
     <router-link to="/signup">Signup</router-link>
+    <router-link to="/categories">Categories</router-link>
     <router-view/>
   </div>
 </template>
