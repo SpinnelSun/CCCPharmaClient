@@ -12,17 +12,19 @@
           <div class="media-content">
 
             <div class="content">
-              <p>
-                <strong>{{product.name}}</strong> <small>{{product.price}}</small>
-              </p>
-            </div>
+                <h3 id="product-name"> {{product.name}} </h3> 
 
-              <div class="level-left">
-                <a class="level-item">
-                  <button class="clicavel" >VER</button>
-                  <button class="clicavel">EDITAR</button>
-                </a>
-              </div>
+                <span :class="{available: product.avaliable, unavailable: !product.available}">
+                  <i class="fa fa-warning"></i>
+                    INDISPONÍVEL
+                </span>
+
+                <h2 id="product-price"> R$ {{product.price}} </h2>
+            </div>
+            <div class="admin-options">
+              <a id="clickable" href="#">EDITAR</a>
+              <a id="clickable" href="#">VER</a>
+            </div>
           </div>
         </article>
 
@@ -40,6 +42,12 @@ export default {
 </script>
 
 <style>
+  .unavailable{
+    color: #ffae00;
+  }
+  .available{
+    color: rgb(154, 231, 227);
+  }
   #product-component template{
   height: 100%;
   padding-top: 10px;
@@ -59,19 +67,52 @@ export default {
 #product-component .product {
   max-width: 500px;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+#clickable{
+  text-decoration: none;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+
+.media-content{
+  padding: 0px;
+  margin: 0px;
+}
+
+.admin-options{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-decoration: none;
+  text-align: left;
+}
+
+#product-name{
+  text-align: left;
+  color: darkblue;
+  margin: 0px;
+}
+
+#product-situation{
+  text-align: left;
+  padding: 0px;
+}
+
+#product-price{
+  text-align: right;
+  color: rgb(243, 60, 60);
 }
 
 #product-component .box {
   width: 300px;
-  height: 150px;
+  height: 155px;
   margin-bottom: 0;
   border-radius: 0;
   background: rgb(154, 231, 227);
   color: #FFF;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
-  border: 5px solid #CCC;
+  border: 5px solid rgb(199, 193, 193);
 }
 
 
@@ -86,10 +127,12 @@ export default {
 #product-component .level-item {
   padding-left: 10px;
   color: #ff0000;
+
 }
 
-#product-component .clicavel {
+#product-component .clickable {
   padding: 0 7.5px;
+  
 }
 </style>
 
