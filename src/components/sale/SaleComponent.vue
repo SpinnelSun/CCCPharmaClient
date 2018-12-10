@@ -48,6 +48,7 @@ export default {
     font-family: 'sans';
     font-size: 0.875rem;
     font-weight: 400;
+    
 }
 
 </style>

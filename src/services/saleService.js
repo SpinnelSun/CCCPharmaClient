@@ -10,5 +10,5 @@ const getAllSales = () => {
 }
 
 export {
-    signup
+    getAllSales
 }
