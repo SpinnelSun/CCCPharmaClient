@@ -9,17 +9,33 @@
                 <span id="price-header">Preço</span>
             </div>
             <ul id="product-list">
-                
+                <li v-for="sale in sales">
+                    {{ sale }} 
+                </li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+import { getAllSales } from '@/services/saleService'
+
 export default {
     name: 'SaleComponent',
-    props: {
-      sale: Object
+    data () {
+        return {
+            sales: [],
+            isError: false,
+            isSucess: false
+        }
+    },
+    methods: {
+        async getSales () {
+            const HTTP_STATUS_CREATED = 201;
+            this.sales = await getAllSales();
+            this.isError = response.status != HTTP_STATUS_CREATED;
+            this.isSucess = !this.isError;
+        }
     }
 }
 </script>
