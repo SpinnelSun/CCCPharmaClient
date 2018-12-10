@@ -8,8 +8,9 @@
         <div class="list-itens">
             <category-item v-for="category in categories" :key="category.name" v-bind:category="category"></category-item>
         </div>
-        <div class="list-footer"></div>
-    </div>
+        <div class="list-footer"><button>Salvar Alterações</button>
+    </div></div>
+        
 </template>
 
 <script>
@@ -30,6 +31,17 @@ export default {
 </script>
  
 <style scoped>
+    button {
+        border-radius: 1em;
+        padding: 0.5em;
+        margin: 1em;
+        width: 15em;
+
+        border: 0.05em solid #FFFFFF;
+        background-color: #242B3A;
+        color: #FFFFFF;
+    }
+
     .list-header {
         display: inline-grid;
         justify-content: space-around;
@@ -53,8 +65,10 @@ export default {
         border-bottom-left-radius: 1em;
         border-bottom-right-radius: 1em;
         width: 60em;
-        height: 1.5em;
+
+        align-self: center;
+        text-align: center;
 
         background-color: #242B3A;
-    }
+    }    
 </style>

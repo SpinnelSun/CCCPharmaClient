@@ -2,7 +2,15 @@
     <div class="category-row">
         <div>{{ category.name }}</div>
         <div>{{ category.discount }}</div>
-        <div>Novo Desconto</div>
+        <div>
+            <select>
+                <option></option>
+                <option>0%</option>
+                <option>10%</option>
+                <option>25%</option>
+                <option>50%</option>
+            </select>
+        </div>
     </div>
 </template>
 
@@ -16,6 +24,15 @@
 </script>
  
 <style scoped>
+    select {
+        border: 0.1em solid #242B3A;
+        padding: 0.15em;
+        width: 5em;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+    }
+
     .category-row {
         display: inline-grid;
         justify-content: space-around;
@@ -27,7 +44,7 @@
         width: 59.8em;
         height: 2em;
 
-        align-content: center;
+        align-items: center;
         text-align: center;
 
         color: #242B3A;
