@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import ProductList from '@/components/product/ProductList'
+import ProductUpdate from '@/components/product/ProductUpdate'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ const router =  new Router({
       path: '/products',
       name: 'ProductList',
       component: ProductList
+    },
+    {
+      path: '/products/:code',
+      name: ProductUpdate,
+      component: ProductUpdate
     }
   ]
 })
