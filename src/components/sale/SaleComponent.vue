@@ -27,11 +27,9 @@ export default {
             sales: []
         }
     },
-    methods: {
-        async created() {
-            this.sales = await getAllSales();
-            console.log(this.sales);
-        }
+    async created() {
+        this.sales = await getAllSales();
+        console.log(this.sales);
     }
 }
 </script>
