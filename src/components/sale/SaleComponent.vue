@@ -1,7 +1,7 @@
 <template>
     <div id="sale-component">
-        Pedido nº: {{sale.Id}} <br/>
-        Total: {{sale.Total}}
+        Pedido nº: id do pedido <br/>
+        Total: Total
         <div id="product-list-Container">
             <div id="product-list-header">
                 <span id="item-header">Itens</span>
@@ -9,8 +9,8 @@
                 <span id="price-header">Preço</span>
             </div>
             <ul id="product-list">
-                <li v-for="sale in sales">
-                    {{ sale }} 
+                <li v-for="sale in sales" :key="sale.id">
+                    <span> {{ sale }} </span>
                 </li>
             </ul>
         </div>
@@ -24,17 +24,13 @@ export default {
     name: 'SaleComponent',
     data () {
         return {
-            sales: [],
-            isError: false,
-            isSucess: false
+            sales: []
         }
     },
     methods: {
-        async getSales () {
-            const HTTP_STATUS_CREATED = 201;
+        async created() {
             this.sales = await getAllSales();
-            this.isError = response.status != HTTP_STATUS_CREATED;
-            this.isSucess = !this.isError;
+            console.log(this.sales);
         }
     }
 }
