@@ -8,6 +8,13 @@ const getProducts = (product) => {
                 .catch(error => error.response);
 }
 
+const update = (product) => {
+    return http.put(`${BASE_PATH}/`+product.code, product)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
 export {
-    getProducts
+    getProducts,
+    update
 }
