@@ -3,26 +3,26 @@
       <div class="box">
         <article class="media">
 
-          <div class="media-left">
-            <figure class="image is-64x64">
-              
-            </figure>
-          </div>
-
           <div class="media-content">
+                <h3 id="product-name"> {{product.name}}  </h3> 
 
-            <div class="content">
-              <p>
-                <strong>{{product.name}}</strong> <small>{{product.price}}</small>
-              </p>
+                <span :class="{available: product.avaliable, unavailable: !product.available}">
+                  <i class="fa fa-warning"></i>
+                    <p>INDISPONÍVEL </p>
+                </span>
+
+                <div class="extra-infos">
+                  <p>Código: {{product.code}} <br>
+                  Fabricante: {{product.producer}} <br>
+                  Quantidade: {{product.amount}}</p>
+
+                </div>
+
+                <h2 id="product-price"> R$ {{product.price}} </h2>
             </div>
+            <div class="admin-options">
+              <a id="clickable" href="#">EDITAR</a>
 
-              <div class="level-left">
-                <a class="level-item">
-                  <button class="clicavel" >VER</button>
-                  <button class="clicavel">EDITAR</button>
-                </a>
-              </div>
           </div>
         </article>
 
@@ -40,7 +40,45 @@ export default {
 </script>
 
 <style>
-  #product-component template{
+.extra-infos{
+  text-align: left;
+  color: #707070
+}
+
+#clickable{
+  text-decoration: none;
+  margin-right: 5px;
+  margin-top: 0px;
+  padding: 0 7.5px;
+  color: #242B3A;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-decoration: none;
+}
+
+.admin-options:hover{
+  text-decoration: unset;
+}
+
+#product-name{
+  text-align: left;
+  color: #242B3A;
+  margin: 0px;
+}
+
+#product-price{
+  text-align: right;
+  color: #242B3A;
+}
+.unavailable{
+  text-align: left;
+  color: #707070;
+}
+.available{
+  text-align: left;
+  color: #DDDDDD;
+}
+
+template{
   height: 100%;
   padding-top: 10px;
   background: #e6ecf1;
@@ -52,44 +90,27 @@ export default {
   text-align: center;
 }
 
-#product-component .button {
-  margin-bottom: 20px;
-}
-
-#product-component .product {
+.product {
   max-width: 500px;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 
-#product-component .box {
+.box {
   width: 300px;
-  height: 150px;
+  height: 210px;
   margin-bottom: 0;
   border-radius: 0;
-  background: rgb(154, 231, 227);
+  background: #DDDDDD;
   color: #FFF;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
-  border: 5px solid #CCC;
+  border: 5px solid #242B3A;
 }
 
-
-#product-component .content small {
-  color: #ff0000;
+.box:hover{
+  margin: 5px;
 }
 
-#product-component img {
-  border-radius: 30px;
-}
-
-#product-component .level-item {
-  padding-left: 10px;
-  color: #ff0000;
-}
-
-#product-component .clicavel {
-  padding: 0 7.5px;
-}
 </style>
 
