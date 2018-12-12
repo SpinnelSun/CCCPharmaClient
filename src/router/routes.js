@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import SaleComponent from '@/components/sale/SaleComponent'
+import SaleList from '@/components/sale/SaleList'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ const router =  new Router({
       path: '/saleComponent',
       name: 'SaleComponent',
       component: SaleComponent
+    },
+    {
+      path: '/saleList',
+      name: 'SaleList',
+      component: SaleList
     }
   ]
 })
