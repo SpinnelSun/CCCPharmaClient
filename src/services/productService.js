@@ -4,7 +4,7 @@ const BASE_PATH = '/products'
 
 const getProducts = () => {
     return http.get(`${BASE_PATH}`)
-                .then(data => console.log(data))
+                .then(response => response)
                 .catch(error => error.response);
 }
 

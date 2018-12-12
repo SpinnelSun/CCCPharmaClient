@@ -3,7 +3,9 @@
         <div class="column">
             <ul>
                 <!-- add v-on para fillProducts -->
-                <li id="component"> <product-component v-for="product in products" :key="product.code" > </product-component> </li>
+                <li id="component" v-for="product in products" :key="product.code"> 
+                    <product-component :product=product > </product-component> 
+                </li>
             </ul>
         </div>
     </div>
@@ -26,8 +28,9 @@
             ProductComponent
         },
         async created() {
-            const content = await getProducts();
-            this.products = content.data.content;
+            const response = await getProducts();
+            console.log(response.data.content);
+            this.products = response.data.content;
         }
     }
 
