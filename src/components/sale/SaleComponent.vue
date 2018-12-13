@@ -4,22 +4,19 @@
             Pedido nº: {{sale.id}} <br/>
             Total: {{sale.cost}} 
         </div>
-        <div id="product-list-Container">
-            <h3 id="product-list-header">
-                <span id="item-header">Itens</span>
-                <span id="quantity-header">Qtd</span>
-                <span id="price-header">Preço</span>
-            </h3>
             <ul>
                 <!--{{sale}}-->
+                <h3 id="product-list-header">
+                    <span id="item-header">Itens</span>
+                    <span id="quantity-header">Qtd</span>
+                    <span id="price-header">Preço</span>
+                </h3>
                 <li v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
                     <span id="product-name">{{soldProduct.product.name}}</span>
                     <span id="product-quantity">{{soldProduct.quantity}}</span>
                     <span id="product-price">{{soldProduct.product.price}}</span>
                 </li>
             </ul>
-
-        </div>
     </div>
 </template>
 
@@ -59,28 +56,19 @@ export default {
     margin-left: 10px;
 }
 
-#product-list-Container{
-    display: grid;
-    grid-template-rows: min-content 1fr;
-    border-bottom: 0.1em solid #242B3A;
-    margin: 10px;
-}
-
 #product-list-header{
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
     color: white;
-    background: black;
+    background: #242B3A;
     grid-row: 1;
+    margin: 5px;
 }
 
 li {
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
-}
-
-span {
-    border: 0.1em solid #242B3A;
+    border-bottom:  0.1em solid #242B3A;
 }
 
 #sale-detale {
@@ -88,7 +76,12 @@ span {
 }
 
 ul {
-    list-style:none;
+    list-style: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 0.2%;
+    padding: 0px;
+    border: 0.1em solid #242B3A;
 }
 
 </style>

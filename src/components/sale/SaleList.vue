@@ -1,12 +1,12 @@
 <template>
     <div id="Sales">
-        <h3 id="sale-list-header">
+        <ul id="product-list">
+            <h3 id="sale-list-header">
             <span>ID</span>
             <span>TOTAL</span>
         </h3>
-        <ul id="product-list">
         <li v-for="sale in sales" :key="sale.id">
-            <span> {{ sale.id }} </span>
+            <span class="clickable"> {{ sale.id }} </span>
             <span> {{ sale.cost }} </span>
         </li>
     </ul>
@@ -34,30 +34,28 @@ export default {
 
 <style scoped>
     #Sales {
-        font-family: 'sans';
-        font-size: 0.875rem;
-        font-weight: 400;
         border: 0.1em solid #242B3A;
-        padding: 0.3em 0em;   
-        align-items: center;
-        text-align: center;
+        padding: 0.3em 0em;  
         color: #242B3A;
+        margin: 0px;
     }
 
     #sale-list-header{
         display: grid;
         grid-template-columns: 1fr 1fr;
         color: white;
-        background: black;
+        background: #242B3A;
         grid-row: 1;
         text-align: left;
+        margin: 0px;
+        padding: 0px;
     }
 
     li {
         display: grid;
         grid-template-columns: 1fr 1fr;
         text-align: left;
-        margin-left: 0px;
+        
     }
 
     span {
@@ -66,8 +64,16 @@ export default {
 
     ul {
         list-style:none;
-        margin: none;
-        padding: node;
+        margin: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 0px;
+        border: 0.1em solid #242B3A;
+    }
+
+    .clickable:hover{
+        text-decoration: underline;
+        color: blue;
     }
 
 
