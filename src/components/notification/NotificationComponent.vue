@@ -11,7 +11,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 
     #notification {
         margin-right: auto;
@@ -26,7 +26,7 @@ export default {
         box-shadow: 0 5px 25px 0 rgba(0,0,0,.15);
 
     }
-    
+
     #notification-name {
         padding: 18px;
         width: calc(100% - 50px);
