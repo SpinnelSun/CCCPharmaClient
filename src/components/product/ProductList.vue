@@ -2,7 +2,6 @@
     <div id="app" class="columns">
         <div class="column">
             <ul>
-                <!-- add v-on para fillProducts -->
                 <li id="component" v-for="product in products" :key="product.code"> 
                     <product-component :product=product > </product-component> 
                 </li>
@@ -15,8 +14,7 @@
 <script>
     import ProductComponent from '@/components/product/ProductComponent'
     import { getProducts } from '@/services/productService'
-
-
+    
     export default {
         name: 'ProductList',
         data() {
@@ -42,10 +40,7 @@
         margin:0px;
         background-color:#EDEDED;
         list-style:none;
-    }
-
-    #component {
-        display: grid;
+         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
     
