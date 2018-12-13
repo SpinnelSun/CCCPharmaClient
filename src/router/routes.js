@@ -5,6 +5,9 @@ import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import ProductList from '@/components/product/ProductList'
 import ProductUpdate from '@/components/product/ProductUpdate'
+import ProductSimpleList from '@/components/product/ProductSimpleList'
+import ProductRegister from '@/components/product/ProductRegister'
+
 
 Vue.use(Router)
 
@@ -38,6 +41,16 @@ const router =  new Router({
       path: '/products/:code',
       name: ProductUpdate,
       component: ProductUpdate
+    },
+    {
+      path: '/products-simple',
+      name: ProductSimpleList,
+      component: ProductSimpleList
+    },
+    {
+      path: '/products-register',
+      name: ProductRegister,
+      component: ProductRegister
     }
   ]
 })
