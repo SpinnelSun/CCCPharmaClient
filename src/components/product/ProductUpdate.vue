@@ -1,6 +1,6 @@
 <template id = "form-update">
     <div>
-        <product-form title="Atualizar" :key="product" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
+        <product-form title="Atualizar" :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
             Houve um erro na atualização de dados. Reveja suas informações.
@@ -22,6 +22,8 @@
 
         data() {
             return {
+                code: this.$route.params.code,
+                product : {},
                 isError: false,
                 isSucess: false
             }
@@ -33,10 +35,10 @@
             async handleSubmitProduct (product) {
                 const HTTP_STATUS_CREATED = 201;
                 const response = await update(product);
+                console.log(response.status);
                 this.isError = response.status != HTTP_STATUS_CREATED;
                 this.isSucess = !this.isError;
-            },
-            
+            }, 
         }
     }
 
