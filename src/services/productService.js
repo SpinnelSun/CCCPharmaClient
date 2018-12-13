@@ -14,7 +14,14 @@ const update = (product) => {
                 .catch(error => error.response);
 }
 
+const save = (product) => {
+    return http.post(`${BASE_PATH}/${product.code}`, product)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
 export {
     getProducts,
-    update
+    update,
+    save
 }
