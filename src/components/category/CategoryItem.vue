@@ -1,7 +1,7 @@
 <template>
     <div class="category-row">
         <div>{{ category.name }}</div>
-        <div>{{ category.discount }}</div>
+        <div>{{ category.discount }}%</div>
         <div>
             <select>
                 <option></option>

@@ -14,18 +14,20 @@
 </template>
 
 <script>
-import CategoryItem from '@/components/category/CategoryItem'
+import CategoryItem from '@/components/category/CategoryItem';
+import { get } from '@/services/categoryService';
 
 export default {
     name: 'CategoryList',
     components: { CategoryItem },
     data() {
         return {
-            categories : [ { name: "Alimentos", discount: "0%" },
-                           { name: "Cosméticos", discount: "10%" },
-                           { name: "Higiene Pessoal", discount: "25%" },
-                           { name: "Medicamentos", discount: "50%" } ]
+            categories : []
         }
+    },
+    async created() {
+        const response = await get();
+        this.categories = response.data;
     }
 }
 </script>
