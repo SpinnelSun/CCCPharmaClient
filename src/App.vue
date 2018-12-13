@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <router-link to="/signin">Login</router-link>
-    <router-link to="/signup">Signup</router-link>
-    <router-link to="/products">Products</router-link>
+    <router-link to="/signup">Signup</router-link> <br> <br>
+    <router-link to="/products">Products to Admin | </router-link>
+    <router-link to="/products-simple">  Products to client |</router-link>
+    <router-link to="/products-register"> Register Products</router-link>
     <router-view/>
   </div>
 </template>
