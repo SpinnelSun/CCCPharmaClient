@@ -1,13 +1,13 @@
 <template>
     <div id="notification">
-        <strong id="product-name">{{ product.name }}</strong>
+        <strong id="notification-name">{{ notification.name }}</strong>
     </div>
 </template>
 <script>
 export default {
     name: 'NotificationComponent',
     props: {
-        product: Object
+        notification: Object
     }
 }
 </script>
@@ -26,22 +26,12 @@ export default {
         box-shadow: 0 5px 25px 0 rgba(0,0,0,.15);
 
     }
-
-    #product-number {
-        margin: 0;
-        width: 50px;
-        background-color: hsl(0, 0%, 96.5%);
-        border: 0;
-        cursor: pointer;
-        transition: .3s ease-in-out;
-    }
-
-    #product-name {
+    
+    #notification-name {
         padding: 18px;
         width: calc(100% - 50px);
         font: 12px Arial, sans-serif;
         text-shadow: rgba(0,0,0,.01) 0 0 1px;
         color: #666;
     }
-
 </style>

@@ -1,7 +1,10 @@
 <template>
     <div>
         <ul v-for="notification in notifications" :key="notification.code">
-        <li><notification-component :product="notification"></notification-component></li>
+            <li>
+                <notification-component :notification="notification">
+                </notification-component>
+            </li>
         </ul>
     </div>
 </template>
@@ -10,7 +13,7 @@ import { get } from '@/services/notificationService';
 import NotificationComponent from '@/components/notification/NotificationComponent';
 
 export default {
-    name: 'Notificationlist',
+    name: 'NotificationList',
     data () {
         return {
             notifications: []
@@ -20,7 +23,7 @@ export default {
         const response = await get();
         this.notifications = response.data;
     },
-    components : {
+    components: {
         NotificationComponent
     }
 }
@@ -29,5 +32,4 @@ export default {
     ul {
         list-style: none;
     }
-
 </style>
