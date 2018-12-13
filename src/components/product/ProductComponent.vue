@@ -6,7 +6,7 @@
           <div class="media-content">
                 <h3 id="product-name"> {{product.name}}  </h3> 
 
-                <span :class="{available: product.avaliable, unavailable: !product.available}">
+                <span :class="{available: product.available, unavailable: !product.available}">
                   <i class="fa fa-warning"></i>
                     <p>INDISPONÍVEL </p>
                 </span>
@@ -21,7 +21,7 @@
                 <h2 id="product-price"> R$ {{product.price}} </h2>
             </div>
             <div class="admin-options">
-              <a id="clickable" href="#">EDITAR</a>
+              <router-link id="clickable" target="_blank" :to="`/products/${product.code}`">EDITAR</router-link>
 
           </div>
         </article>
