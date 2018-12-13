@@ -41,13 +41,9 @@ export default {
 <style scoped>
 
 #sale-component{
-    font-family: 'sans';
-    font-size: 0.875rem;
-    font-weight: 400;
     border: 0.1em solid #242B3A;
-    padding: 0.3em 0em;   
-    align-items: center;
-    text-align: center;
+    border-radius: 5px;
+    padding: 0.3em 0em; 
     color: #242B3A;
 }
 

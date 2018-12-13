@@ -35,6 +35,7 @@ export default {
 <style scoped>
     #Sales {
         border: 0.1em solid #242B3A;
+        border-radius: 5px;
         padding: 0.3em 0em;  
         color: #242B3A;
         margin: 0px;
@@ -74,6 +75,7 @@ export default {
     .clickable:hover{
         text-decoration: underline;
         color: blue;
+        cursor: pointer;
     }
 
 
