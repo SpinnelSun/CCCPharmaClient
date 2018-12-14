@@ -19,6 +19,15 @@
     name: 'CategoryItem',
     props: {
       category: Object
+    },
+    methods: {
+        discountStringToFloat(discount) {
+            return (parseFloat(discount) / 100);
+        },
+
+        discountFloatToString(discount) {
+            return (parseInt(discount * 100).toString + "%");
+        }
     }
 }
 </script>
