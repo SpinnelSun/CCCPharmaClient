@@ -40,7 +40,8 @@ export default {
                 const response = await update(category);
                 return response;
             });
-            const result = await Promise.all(promises);
+            await Promise.all(promises);
+            
             this.$router.go();
 
         }
