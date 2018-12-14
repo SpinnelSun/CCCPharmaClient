@@ -31,8 +31,7 @@ export default {
         }
     },
     async created() {
-        const one = await getSaleById(5);
-        console.log(one);
+        const one = await getSaleById(7);
         this.sale = one.data;
     }
 }
