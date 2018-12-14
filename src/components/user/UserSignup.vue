@@ -4,11 +4,11 @@
         </user-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
-            Houve um erro no cadastro de dados reveja suas informações
+            Houve um erro no cadastro de dados. Confira suas informações!
         </span>
         <span :class="{sucess: isSucess}" v-if="isSucess">
             <i class="fa fa-check"></i>
-            Usuário cadastrado com sucesso
+            Usuário cadastrado com sucesso!
         </span>
     </div>
 </template>
