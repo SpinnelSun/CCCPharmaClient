@@ -1,6 +1,6 @@
 <template id = "form-update">
     <div>
-        <product-form title="Atualizar" :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
+        <product-form title="Atualizar" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
             Houve um erro na atualização de dados. Reveja suas informações.
@@ -14,7 +14,7 @@
 
 
 <script>
-    import { update } from '@/services/productService'
+    import { update, findByCode } from '@/services/productService'
     import ProductForm from '@/components/product/ProductForm'
 
     export default {
@@ -31,6 +31,12 @@
         components: {
             ProductForm
         },
+
+        async created (){
+            const response =  await findByCode(this.$route.params.code);
+            this.product = response.data;
+        },
+
         methods: {
             async handleSubmitProduct (product) {
                 const HTTP_STATUS_CREATED = 201;

@@ -2,19 +2,16 @@
     <div id="product-form">
         <form v-on:submit.prevent="$emit('handleSubmitProduct', product)">
             <label for="input_name">Nome do produto: </label>
-            <input v-model="product.name" id="input_name" required/>
-
-            <label for="input_code">Codigo</label>
-            <input v-model="product.code" id="input_code" required/>
+            <input :value="product.name" id="input_name" required/>
 
             <label for="input_price">Preço</label>
-            <input v-model="product.price" id="input_price" required/>
+            <input :value="product.price" id="input_price" required/>
 
             <label for="input_producer">Fabricante</label>
-            <input v-model="product.producer" id="input_producer" required/>
+            <input :value="product.producer" id="input_producer" required/>
 
             <label for="input_amount">Quantidade</label>
-            <input v-model="product.amount" id="input_amount" required/>
+            <input :value="product.amount" id="input_amount" required/>
 
             <button>{{title}}</button>
         </form>
@@ -25,19 +22,10 @@
 export default {
     name: 'ProductForm',
     props: {
-        title: String
-    },
-    data() {
-        return {
-            product: {
-                name: '',
-                code: '',
-                price: '',
-                producer: '',
-                amount: ''
-            }
-        }
+        title: String,
+        product: Object
     }
+    
 }
 </script>
 <style scoped>
@@ -46,6 +34,12 @@ body {
     font-size: 0.875rem;
     font-weight: 400;
     margin: 0;
+}
+
+label{
+    text-align: left;
+    padding: 18px;
+
 }
 
 form {
@@ -68,6 +62,8 @@ input {
     font-size: 1.1em;
     border-bottom: 1px solid #ac7c4f;
     margin-bottom: 10px;
+    font-size: 15px;
+    color: rgb(182, 182, 182);
 }
 
 input:hover{
@@ -84,6 +80,8 @@ button {
   text-align:center;
   transition: .2s ease-in-out;
 }
+
+
 
 </style>
 
