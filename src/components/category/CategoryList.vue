@@ -8,14 +8,14 @@
         <div class="list-itens">
             <category-item v-for="category in categories" :key="category.name" v-bind:category="category"></category-item>
         </div>
-        <div class="list-footer"><button>Salvar Alterações</button>
+        <div class="list-footer"><button v-on:click="saveChanges">Salvar Alterações</button>
     </div></div>
         
 </template>
 
 <script>
 import CategoryItem from '@/components/category/CategoryItem';
-import { get } from '@/services/categoryService';
+import { get, update } from '@/services/categoryService';
 
 export default {
     name: 'CategoryList',
@@ -28,6 +28,18 @@ export default {
     async created() {
         const response = await get();
         this.categories = response.data;
+    },
+    methods: {
+        percentageStringToFloat(discount) {
+            return (parseFloat(discount) / 100);
+        },
+
+        saveChanges() {
+            this.categories.forEach(category => {
+                category.discount = this.percentageStringToFloat(category.discount); 
+                update(category);
+            });
+        }
     }
 }
 </script>

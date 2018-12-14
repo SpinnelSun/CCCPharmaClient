@@ -9,7 +9,7 @@ const get = () => {
 }
 
 const update = (category) => { 
-    return http.put(`${BASE_PATH}/${category.name}`, category)
+    return http.put(`${BASE_PATH}`, category)
             .then(response => response)
             .catch(error => error.response);
 }

@@ -1,14 +1,12 @@
 <template>
     <div class="category-row">
         <div>{{ category.name }}</div>
-        <div>{{ category.discount }}%</div>
+        <div v-once>{{ category.discount }}</div>
         <div>
-            <select>
-                <option></option>
-                <option>0%</option>
-                <option>10%</option>
-                <option>25%</option>
-                <option>50%</option>
+            <select v-model="category.discount">
+                <option v-for="discount in discounts" :value="discount" :key="discount">
+                    {{ discount }}
+                </option>
             </select>
         </div>
     </div>
@@ -17,16 +15,20 @@
 <script>
     export default {
     name: 'CategoryItem',
+    data() {
+        return {
+            discounts: ["0%", "10%", "25%", "50%"]
+        }
+    },
     props: {
       category: Object
     },
+    created() {
+        this.category.discount = this.percentageFloatToString(this.category.discount);
+    },
     methods: {
-        discountStringToFloat(discount) {
-            return (parseFloat(discount) / 100);
-        },
-
-        discountFloatToString(discount) {
-            return (parseInt(discount * 100).toString + "%");
+        percentageFloatToString(discount) {
+            return (parseInt(discount * 100).toString() + "%");
         }
     }
 }
