@@ -34,11 +34,15 @@ export default {
             return (parseFloat(discount) / 100);
         },
 
-        saveChanges() {
-            this.categories.forEach(category => {
+        async saveChanges() {
+            const promises = this.categories.map(async category => {
                 category.discount = this.percentageStringToFloat(category.discount); 
-                update(category);
+                const response = await update(category);
+                return response;
             });
+            const result = await Promise.all(promises);
+            this.$router.go();
+
         }
     }
 }
