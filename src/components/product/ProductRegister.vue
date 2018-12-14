@@ -1,13 +1,15 @@
 <template id = "form-update">
     <div>
-        <label for="input_code">Codigo</label>
-        <input :value="product.code" id="input_code" required/>
 
-        <label for="input_category">Categoria</label>
-        <input :value="product.category" id="input_category" required/>
+        <div class="register-datas">
+            <label for="input_code">Codigo</label><br><br>
+            <input :value="product.code" id="input_code" required/> <br>
 
-        <product-form :product=product title="Registrar" :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
-        
+            <label for="input_category">Categoria</label><br><br>
+            <input :value="product.category" id="input_category" required/>
+
+            <product-form :product=product title="Registrar" :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
+        </div>
 
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
@@ -61,11 +63,11 @@
 
 <style scoped>
 
-label{
-    text-align: left;
-    padding: 18px;
-
+.register-datas {
+    padding-top: 3cm;
+    padding-bottom: 0cm;
 }
+
 
 form {
     margin: 10%;
@@ -75,7 +77,6 @@ form {
     align-items: center;
     text-align: center;
     justify-content: center;
-    
 }
 
 input {

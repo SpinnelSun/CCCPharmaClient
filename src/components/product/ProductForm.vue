@@ -43,7 +43,6 @@ label{
 }
 
 form {
-    margin: 10%;
     padding: 1%;
     display: flex;
     flex-direction: column;
@@ -80,8 +79,6 @@ button {
   text-align:center;
   transition: .2s ease-in-out;
 }
-
-
 
 </style>
 
