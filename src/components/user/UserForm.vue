@@ -25,46 +25,67 @@ export default {
 }
 </script>
 <style scoped>
-body {
-    font-family: 'sans';
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin: 0;
-}
+ @import url("https://fonts.googleapis.com/css?family=Lato");
+ @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 form {
-    margin: 10%;
-    padding: 1%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+    font-family: "Lato";
+    border-radius: 4em;
+
+    background-color: #242B3A;
+    color: #FFFFFF;
+
+    margin: 0% 41%;
+    padding: 3em 0em 2.5em 0em;
 }
 
 input {
-    width: 25%;
-    height: 50%;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    font-size: 1.1em;
-    border-bottom: 1px solid #ac7c4f;
-    margin-bottom: 10px;
+    border: none;
+    font-size: 1.05em;
+    border-bottom: 0.05em solid #FFFFFF;
+    
+    background-color: #242B3A;
+    color: #FFFFFF;
+
+    width: 65%;
+    margin-top: 1em;
+    margin-bottom: 3em;
+    padding: 0.3em 1em 0em 1em;
 }
 
-input:hover{
-    border-bottom: 1px solid #000000;
+label {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: "Raleway";
 }
 
 button {
-  background-color:#000000;
-  color:white;
-  font-size: 1.1em;
-  border: 0;
-  cursor:pointer;
-  padding: 1em;
-  text-align:center;
-  transition: .2s ease-in-out;
+    text-align:center;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: "Raleway";
+    border: 0.08em solid #FFFFFF;
+    border-radius: 0.75em;
+    
+
+    margin-top: 0.5em;
+    padding: 0.75em 1.2em;
+
+    background-color:#242B3A;
+    color:#FFFFFF;
+}
+
+button:hover {
+    border: 0.08em solid #242B3A;
+    background-color:#FFFFFF;
+    color:#242B3A;
+
+    transition: .2s ease-in-out;
 }
 </style>
 
