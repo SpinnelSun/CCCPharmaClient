@@ -3,8 +3,12 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
+<<<<<<< HEAD
 import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
+=======
+import NotificationList from '@/components/notification/NotificationList'
+>>>>>>> 5f7285636d1dd3f0bd989ed59651c9105de3dba4
 
 Vue.use(Router)
 
@@ -30,6 +34,7 @@ const router =  new Router({
       component: UserSignup
     },
     {
+<<<<<<< HEAD
       path: '/saleComponent',
       name: 'SaleComponent',
       component: SaleComponent
@@ -38,6 +43,11 @@ const router =  new Router({
       path: '/saleList',
       name: 'SaleList',
       component: SaleList
+=======
+      path: '/notifications',
+      name: 'Notification',
+      component: NotificationList
+>>>>>>> 5f7285636d1dd3f0bd989ed59651c9105de3dba4
     }
   ]
 })
