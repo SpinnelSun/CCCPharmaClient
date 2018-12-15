@@ -31,14 +31,14 @@ const router =  new Router({
       component: UserSignup
     },
     {
-      path: '/saleComponent',
-      name: 'SaleComponent',
-      component: SaleComponent
-    },
-    {
       path: '/saleList',
       name: 'SaleList',
       component: SaleList
+    },
+    {
+      path: '/sale/:code',
+      name: 'SaleComponent',
+      component: SaleComponent,
     },
     {
       path: '/notifications',

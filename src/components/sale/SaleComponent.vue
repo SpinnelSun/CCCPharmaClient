@@ -30,8 +30,8 @@ export default {
         }
     },
     async created() {
-        const one = await getSaleById(7);
-        this.sale = one.data;
+        const response =  await getSaleById(this.$route.params.code);
+        this.sale = response.data;
     }
 }
 </script>

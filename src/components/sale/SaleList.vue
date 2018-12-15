@@ -6,7 +6,11 @@
             <span>TOTAL</span>
         </h3>
         <li v-for="sale in sales" :key="sale.id">
-            <span class="clickable"> {{ sale.id }} </span>
+            <span class="clickable">
+                <router-link :to="`/sale/${sale.id}`">
+                    {{sale.id}}
+                </router-link>
+            </span>
             <span> {{ sale.cost }} </span>
         </li>
     </ul>
