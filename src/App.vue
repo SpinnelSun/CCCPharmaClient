@@ -4,6 +4,7 @@
     <router-link to="/signup">Signup</router-link>
     <router-link to="/saleComponent">SaleComponent</router-link>
     <router-link to="/saleList">SaleList</router-link>
+    <router-link to="/categories">Categories</router-link>
     <router-link to="/notifications">Notification</router-link>
     <router-view/>
   </div>

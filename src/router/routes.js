@@ -5,6 +5,7 @@ import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
+import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ const router =  new Router({
       path: '/sale/:code',
       name: 'SaleComponent',
       component: SaleComponent,
+    },
+    {
+      path: '/categories',
+      name: 'CategoryList',
+      component: CategoryList
     },
     {
       path: '/notifications',
