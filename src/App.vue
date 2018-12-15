@@ -1,28 +1,59 @@
 <template>
   <div id="app">
-    <router-link to="/signin">Login</router-link>
-    <router-link to="/signup">Signup</router-link>
-    <router-link to="/saleComponent">SaleComponent</router-link>
-    <router-link to="/saleList">SaleList</router-link>
-    <router-link to="/categories">Categories</router-link>
-    <router-link to="/notifications">Notification</router-link>
-    <router-view/>
+    <nav>
+      <component :is="layout">
+      </component>
+    </nav>
+    <main>
+      <router-view/>
+    </main> 
   </div>
 </template>
-
 <script>
+import AdminNavBar from '@/views/AdminNavBar'
+import ClientNavBar from '@/views/ClientNavBar'
+import CommonNavBar from '@/views/CommonNavBar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    layout() {
+      if(this.$route.meta.isAdmin){
+        return `admin-nav-bar`;
+      }else if(this.$route.meta.isClient){
+        return `client-nav-bar`;
+      }else{
+        return `common-nav-bar`;
+      }
+    }
+  },
+  components:{
+    AdminNavBar,
+    ClientNavBar,
+    CommonNavBar
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
+ @import url("https://fonts.googleapis.com/css?family=Lato");
+
+#app{
+  font-family: 'Lato';
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+}
+nav {
+  grid-column: 1;
+  grid-row: 1 / 7;
+  font-size: 1.5em;
+  background-color: #242B3A;
+}
+main {
+    grid-row: 2 / 7;
+    grid-column: 2 / 5; 
 }
 
 .message {
