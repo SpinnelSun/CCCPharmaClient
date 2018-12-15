@@ -1,15 +1,25 @@
 <template>
   <div id="app">
-    <admin-nav-bar></admin-nav-bar>
-    <client-nav-bar></client-nav-bar>
+    <component :is="layout">
+    </component>
   </div>
 </template>
 
 <script>
 import AdminNavBar from '@/views/AdminNavBar'
 import ClientNavBar from '@/views/ClientNavBar'
+
 export default {
   name: 'App',
+  computed: {
+    layout() {
+      if(this.$route.meta.is_admin){
+        return `admin-nav-bar`;
+      }else{
+        return `client-nav-bar`;
+      }
+    }
+  },
   components:{
     AdminNavBar,
     ClientNavBar
@@ -23,7 +33,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
 }
 
 .message {
