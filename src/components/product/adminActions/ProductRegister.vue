@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import ProductForm from '@/components/product/ProductForm'
+    import ProductForm from '@/components/product/adminActions/ProductForm'
 
     import { save } from '@/services/productService'
     import { get } from '@/services/categoryService';

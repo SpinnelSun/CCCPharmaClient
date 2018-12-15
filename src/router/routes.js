@@ -4,10 +4,10 @@ import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import ProductList from '@/components/product/ProductList'
-import ProductUpdate from '@/components/product/ProductUpdate'
-import ProductSimpleList from '@/components/product/ProductSimpleList'
-import ProductRegister from '@/components/product/ProductRegister'
-
+import ProductUpdate from '@/components/product/adminActions/ProductUpdate'
+import ProductSimpleList from '@/components/product/clientLists/ProductSimpleList'
+import ProductUnavailableList from '@/components/product/clientLists/ProductUnavailableList'
+import ProductRegister from '@/components/product/adminActions/ProductRegister'
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
@@ -61,6 +61,10 @@ const router =  new Router({
       path: '/notifications',
       name: 'Notification',
       component: NotificationList
+    },{
+      path:'/products-unavailable',
+      name: ProductUnavailableList,
+      component: ProductUnavailableList
     }
   ]
 })

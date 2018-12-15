@@ -2,10 +2,8 @@
     <div class="box-view">
         <span class="product-name"> {{product.name}} </span> 
         <span class="product-producer"> {{product.producer}} </span>
-        <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
-        <span class="amount-warning" :class="{available: product.available, unavailable: !product.available}">
-            Indisponível
-        </span>
+        <span class="product-price" v-if="product.available === true"> R$ {{product.price.toFixed(2)}} </span>
+        <span class="amount-warning" v-if="product.available === false" >Indisponível  </span>
     </div>
 </template>
 
@@ -80,31 +78,16 @@ export default {
         font-family: "Raleway";
         font-size: 1.1em;
 
+        background-color: #FFFFFF;
+        color: #242B3A;
+
         padding: 0.5em;
         margin: 1em 0em 0.5em 0em;
     }
 
-    .available {
+    .box-view:hover > .amount-warning {
         background-color: #242B3A;
-        color: #242B3A;
-    }
-
-    .box-view:hover > .available {
-        background-color: #FFFFFF;
         color: #FFFFFF;
-
-        transition: .15s ease-in-out;
-    }
-
-    .unavailable {
-        border: 0.1em solid #242B3A;
-        background-color: #FFFFFF;
-        color: #242B3A;
-    }
-
-    .box-view:hover > .unavailable {
-        background-color: #FFFFFF;
-        color: #242B3A;
 
         transition: .15s ease-in-out;
     }
