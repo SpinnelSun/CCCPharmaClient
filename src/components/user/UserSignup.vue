@@ -1,6 +1,6 @@
 <template>
     <div>
-        <user-form title="Sign up" v-on:handleSubmit="handleSubmit">
+        <user-form title="Registrar" v-on:handleSubmit="handleSubmit">
         </user-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
