@@ -2,6 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
+
+import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
+import ProductUpdate from '@/components/product/admin/ProductUpdate'
+import ProductList from '@/components/product/client/ProductList'
+import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
+import ProductRegister from '@/components/product/admin/ProductRegister'
+
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
@@ -25,6 +32,37 @@ const router =  new Router({
       component: UserSignup
     },
     {
+      path: '/products',
+      name: 'ProductDetailedList',
+      component: ProductDetailedList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
+    },
+    {
+      path: '/products/:code',
+      name: 'ProductUpdate',
+      component: ProductUpdate,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
+    },
+    {
+      path: '/products-simple',
+      name: 'ProductList',
+      component: ProductList
+    },
+    {
+      path: '/products-register',
+      name: 'ProductRegister',
+      component: ProductRegister,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
+    },{
       path: '/categories',
       name: 'CategoryList',
       component: CategoryList,
@@ -39,6 +77,15 @@ const router =  new Router({
       meta: {
         requiresAuth: true,
         isAdmin: true
+      }
+    },{
+      path:'/products-unavailable',
+      name: ProductUnavailableList,
+      component: ProductUnavailableList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+        isClient: true
       }
     }
   ]
