@@ -1,16 +1,23 @@
 <template id = "form-update">
     <div>
 
-        <div class="register-datas">
+        <form v-on:submit.prevent="handleSubmitProduct" class="register-datas">
             <label for="input_code">Codigo</label><br><br>
-            <input :value="product.code" id="input_code" required/> <br>
+            <input v-model="product.code" id="input_code" required/> <br>
 
             <label for="input_category">Categoria</label><br><br>
-            <input :value="product.category" id="input_category" required/>
+            <select v-model="product.category">
+                <option v-for="category in categories" :value="category" :key="category.name">
+                    {{ category.name }}
+                </option>
+            </select>
 
-            <product-form :product=product title="Registrar" :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
-        </div>
+            <button>Register</button>
 
+            <!-- <product-form :product=product title="Registrar" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form> -->
+        </form>
+
+        {{product}}
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
             Houve um erro na atualização de dados. Reveja suas informações.
@@ -32,14 +39,13 @@
 
         data() {
             return {
-                code: this.$route.params.code,
-                product : {name: '',
-                            price: '',
-                            amount: '',
-                            producer: '',
-                            category: '',
-                            code: ''
-
+                product : {
+                    name: '',
+                    price: '',
+                    amount: '',
+                    producer: '',
+                    category: {},
+                    code: ''
                 },
                 isError: false,
                 isSucess: false
@@ -49,12 +55,8 @@
             ProductForm
         },
         methods: {
-            async handleSubmitProduct (product) {
-                const HTTP_STATUS_CREATED = 201;
-                const response = await save(product);
-                console.log(response.status);
-                this.isError = response.status != HTTP_STATUS_CREATED;
-                this.isSucess = !this.isError;
+            handleSubmitProduct () {
+                console.log(this.product.code);
             }, 
         }
     }
