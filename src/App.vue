@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <router-link to="/signin">Login</router-link>
-    <router-link to="/signup">Signup</router-link>
-    <router-link to="/categories">Categories</router-link>
-    <router-link to="/notifications">Notification</router-link>
-    <router-view/>
+    <admin-nav-bar></admin-nav-bar>
   </div>
 </template>
 
 <script>
+import AdminNavBar from '@/views/AdminNavBar'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    AdminNavBar
+  }
 }
 </script>
 
