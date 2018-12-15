@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <component :is="layout">
-    </component>
+    <nav v-show="showNavBar">
+      <component :is="layout">
+      </component>
+    </nav>
+    <main>
+      <router-view/>
+    </main> 
   </div>
 </template>
 
@@ -18,6 +23,9 @@ export default {
       }else{
         return `client-nav-bar`;
       }
+    },
+    showNavBar(){
+      return this.$route.meta.requiresAuth;
     }
   },
   components:{
@@ -28,11 +36,24 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+ @import url("https://fonts.googleapis.com/css?family=Lato");
+
+#app{
+  font-family: 'Lato';
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+}
+nav {
+  grid-column: 1;
+  grid-row: 1 / 7;
+  font-size: 1.5em;
+  background-color: #242B3A;
+}
+main {
+    grid-row: 2 / 7;
+    grid-column: 2 / 5; 
 }
 
 .message {

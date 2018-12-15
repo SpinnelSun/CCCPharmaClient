@@ -25,21 +25,16 @@ export default {
 }
 </script>
 <style scoped>
- @import url("https://fonts.googleapis.com/css?family=Lato");
  @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
-    font-family: "Lato";
+    align-items: center;    
     border-radius: 4em;
-
     background-color: #242B3A;
     color: #FFFFFF;
-
     margin: 0% 41%;
     padding: 3em 0em 2.5em 0em;
 }

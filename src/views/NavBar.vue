@@ -1,25 +1,42 @@
 <template>
-  <div id="nav-bar">
-    <slot></slot>
-    <router-link to="/logout">Logout</router-link>
-    <router-view/>
-  </div>
+    <div id="layout">
+        <slot></slot>
+        <button @click="quit">Logout</button>
+    </div>
 </template>
 <script>
+import { logout } from '@/services/authService'
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  methods: {
+      quit(){
+          logout();
+          this.$router.push('signin');
+      }
+  }
 }
 </script>
-
-<style scoped>
-#nav-bar{
-  height: 100%;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #242B3A; 
-}
-
+<style>
+    #layout{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        background-color: #242B3A;
+        color: #FFFFFF;
+        border: 0;
+        padding: 0;
+        font-size: 100%;
+        font-family: inherit;
+        cursor: pointer;
+    }
+    a{
+        color: #FFFFFF;
+        -webkit-backface-visibility:hidden;
+        backface-visibility:hidden;
+        transition:0.5s color ease;
+	    text-decoration:none;
+    }
 </style>

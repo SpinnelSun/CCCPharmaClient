@@ -37,11 +37,19 @@ const router =  new Router({
     {
       path: '/categories',
       name: 'CategoryList',
-      component: CategoryList
+      component: CategoryList,
+      meta: {
+        requiresAuth: true,
+        is_admin: true
+      }
     },{
       path: '/notifications',
       name: 'Notification',
-      component: NotificationList
+      component: NotificationList,
+      meta: {
+        requiresAuth: true,
+        is_admin: true
+      }
     }
   ]
 })
