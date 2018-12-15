@@ -9,21 +9,12 @@ export default {
   name: 'NavBar'
 }
 </script>
-<style>
+<style scoped>
     #layout{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-    button {
-        background-color: #242B3A;
-        color: #FFFFFF;
-        border: 0;
-        padding: 0;
-        font-size: 100%;
-        font-family: inherit;
-        cursor: pointer;
     }
     a {
         color: #FFFFFF;

@@ -7,7 +7,7 @@
         </h3>
         <li v-for="sale in sales" :key="sale.id">
             <span class="clickable">
-                <router-link :to="`/sale/${sale.id}`">
+                <router-link :to="`/sales/${sale.id}`">
                     {{sale.id}}
                 </router-link>
             </span>

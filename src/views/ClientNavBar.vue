@@ -22,3 +22,14 @@ export default {
   }
 }
 </script>
+<style>
+  button {
+    background-color: #242B3A;
+    color: #FFFFFF;
+    border: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: inherit;
+    cursor: pointer;
+  }
+</style>

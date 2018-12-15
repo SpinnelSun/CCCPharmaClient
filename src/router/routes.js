@@ -17,24 +17,27 @@ const router =  new Router({
       component: Signin
     },
     {
-      path: '/signin',
-      name: 'Signin',
-      component: Signin
-    },
-    {
       path: '/signup',
       name: 'Signup',
       component: UserSignup
     },
     {
-      path: '/saleList',
+      path: '/sales',
       name: 'SaleList',
-      component: SaleList
+      component: SaleList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },
     {
-      path: '/sale/:code',
+      path: '/sales/:code',
       name: 'SaleComponent',
       component: SaleComponent,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },
     {
       path: '/categories',
