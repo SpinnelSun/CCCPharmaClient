@@ -19,7 +19,7 @@
         justify-content: center;
         align-items: left;
 
-        padding: 2em 1em;
+        padding: 2em 1.5em;
     }
 
     a { 
@@ -30,18 +30,5 @@
         color: #FFFFFF;
 	    
         transition: 0.5s color ease;
-    }
-
-    button {
-        cursor: pointer;
-
-        background-color: #242B3A;
-        color: #FFFFFF;
-
-        font-family: inherit;
-        font-size: 1em;
-
-        padding: 0;
-        border: 0;
     }
 </style>
