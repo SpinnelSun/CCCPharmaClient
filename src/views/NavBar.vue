@@ -2,7 +2,6 @@
   <div id="nav-bar">
     <slot></slot>
     <router-link to="/logout">Logout</router-link>
-    <!-- ADICIONAR PRODUCTS E SALES-->
     <router-view/>
   </div>
 </template>

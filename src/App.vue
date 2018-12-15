@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <admin-nav-bar></admin-nav-bar>
-    <br><br><br><br>
     <client-nav-bar></client-nav-bar>
   </div>
 </template>
