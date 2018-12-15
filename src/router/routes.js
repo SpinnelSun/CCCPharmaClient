@@ -6,7 +6,7 @@ import UserSignup from '@/components/user/UserSignup'
 
 import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
 import ProductUpdate from '@/components/product/admin/ProductUpdate'
-import ProductSimpleList from '@/components/product/client/ProductSimpleList'
+import ProductList from '@/components/product/client/ProductList'
 import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
 import ProductRegister from '@/components/product/admin/ProductRegister'
 
@@ -43,17 +43,17 @@ const router =  new Router({
     },
     {
       path: '/products/:code',
-      name: ProductUpdate,
+      name: 'ProductUpdate',
       component: ProductUpdate
     },
     {
       path: '/products-simple',
-      name: ProductSimpleList,
-      component: ProductSimpleList
+      name: 'ProductList',
+      component: ProductList
     },
     {
       path: '/products-register',
-      name: ProductRegister,
+      name: 'ProductRegister',
       component: ProductRegister
     },{
       path: '/categories',

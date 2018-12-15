@@ -12,18 +12,18 @@
         </div>
         <div class="products-grid">
             <div class="product-item" v-for="product in products" :key="product.code"> 
-                <product-simple-component :product=product></product-simple-component> 
+                <product-item :product=product></product-item> 
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import ProductSimpleComponent from '@/components/product/client/ProductSimpleComponent'
+    import ProductItem from '@/components/product/client/ProductItem'
     import { getProducts, getProductsSorted } from '@/services/productService'
     
     export default {
-        name: 'ProductSimpleList',
+        name: 'ProductList',
         data() {
             return {
                 products : [],
@@ -31,7 +31,7 @@
             }
         },
         components: {
-            ProductSimpleComponent
+            ProductItem
         },
         async created() {
             const response = await getProducts();

@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'ProductSimpleComponent',
+    name: 'ProductItem',
     props: {
       product: Object
     }
