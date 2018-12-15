@@ -1,8 +1,8 @@
 <template>
     <div id="sale-record">
         <div class="sale-details">
-            <span>Pedido Nº:</span> {{sale.id}} 131<br/>
-            <span>Total:</span> {{sale.cost}} R$ 50,00
+            <span>Pedido Nº:</span> {{sale.id}}<br/>
+            <span>Total:</span> {{sale.cost}}
         </div>
         <div class="sale-itens">
             <div class="list-header">
@@ -10,7 +10,7 @@
                 <div class="column-header">Quantidade</div>
                 <div class="column-header">Preço</div>
             </div>
-            <li v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
+            <li id="list" v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
                 <span id="product-name">{{soldProduct.product.name}}</span>
                 <span id="product-quantity">{{soldProduct.quantity}}</span>
                 <span id="product-price">{{soldProduct.product.price}}</span>
@@ -71,10 +71,9 @@ span {
     margin-right: 0.2em;
 }
 
-#sale-itens {
+.sale-itens {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .list-header {
@@ -96,6 +95,18 @@ span {
     width: 40em;
     height: 3em;
 }
+
+li {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+
+    list-style: none;
+    margin: 5px;
+    border-bottom: #242B3A solid 3px;
+}
+
+
+
 
 
 </style>
