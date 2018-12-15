@@ -62,6 +62,7 @@
             async handleSubmitProduct (product) {
                 const HTTP_STATUS_CREATED = 201;
                 const response = await save(product);
+                console.log(response);
                 this.isError = response.status != HTTP_STATUS_CREATED;
                 this.isSucess = !this.isError; 
             }, 
