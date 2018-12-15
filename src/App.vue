@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav v-show="showNavBar">
+    <nav>
       <component :is="layout">
       </component>
     </nav>
@@ -9,28 +9,28 @@
     </main> 
   </div>
 </template>
-
 <script>
 import AdminNavBar from '@/views/AdminNavBar'
 import ClientNavBar from '@/views/ClientNavBar'
+import CommonNavBar from '@/views/CommonNavBar'
 
 export default {
   name: 'App',
   computed: {
     layout() {
-      if(this.$route.meta.is_admin){
+      if(this.$route.meta.isAdmin){
         return `admin-nav-bar`;
-      }else{
+      }else if(this.$route.meta.isClient){
         return `client-nav-bar`;
+      }else{
+        return `common-nav-bar`;
       }
-    },
-    showNavBar(){
-      return this.$route.meta.requiresAuth;
     }
   },
   components:{
     AdminNavBar,
-    ClientNavBar
+    ClientNavBar,
+    CommonNavBar
   }
 }
 </script>

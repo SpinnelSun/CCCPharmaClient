@@ -4,7 +4,7 @@
     <router-link to="/products">Products</router-link>
     <router-link to="/categories">Categories</router-link>
     <router-link to="/sales">Sales</router-link>
-    <!-- ADICIONAR PRODUCTS E SALES-->
+    <button @click="quit">Logout</button>
   </nav-bar>
 </template>
 
@@ -14,6 +14,12 @@ export default {
   name: 'AdminNavBar',
   components: {
     NavBar
+  },
+  methods: {
+    quit(){
+        logout();
+        this.$router.push('signin');
+    }
   }
 }
 </script>

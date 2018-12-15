@@ -1,19 +1,12 @@
 <template>
     <div id="layout">
         <slot></slot>
-        <button @click="quit">Logout</button>
     </div>
 </template>
 <script>
 import { logout } from '@/services/authService'
 export default {
-  name: 'NavBar',
-  methods: {
-      quit(){
-          logout();
-          this.$router.push('signin');
-      }
-  }
+  name: 'NavBar'
 }
 </script>
 <style>
@@ -32,7 +25,7 @@ export default {
         font-family: inherit;
         cursor: pointer;
     }
-    a{
+    a {
         color: #FFFFFF;
         -webkit-backface-visibility:hidden;
         backface-visibility:hidden;
