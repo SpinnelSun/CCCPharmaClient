@@ -2,9 +2,13 @@
     <div>
         <div class="product-order">
             <span> Listar por: </span>
-            <button @click="sortProducts('name')">NOME</button>
-            <button @click="sortProducts('price')">PREÇO</button>
-            <button @click="sortProducts('producer')">FABRICANTE</button>
+            <select @change="sort" class="form-control" v-model="sortingAttribute">
+                <option value="code">Código</option>
+                <option value="name">Nome</option>
+                <option value="price">Preço</option>
+                <option value="producer">Fabricante</option>
+                <option value="category">Categoria</option>
+            </select>
         </div>
         <div class="products-grid">
             <div class="product-item" v-for="product in products" :key="product.code"> 
@@ -16,13 +20,14 @@
 
 <script>
     import ProductSimpleComponent from '@/components/product/client/ProductSimpleComponent'
-    import { getProducts } from '@/services/productService'
+    import { getProducts, getProductsSorted } from '@/services/productService'
     
     export default {
         name: 'ProductSimpleList',
         data() {
             return {
-                products : []
+                products : [],
+                sortingAttribute: ''
             }
         },
         components: {
@@ -30,16 +35,13 @@
         },
         async created() {
             const response = await getProducts();
-            console.log(response.data.content);
             this.products = response.data.content;
         },
         
         methods:{
-            sortProducts: function(key) {
-                
-                this.products.sort(function(a, b) {
-                    return a[key].localeCompare(b[key]);
-                });
+            async sort () {
+                const response = await getProductsSorted(this.sortingAttribute);
+                this.products = response.data.content;
             }
         }
     }
