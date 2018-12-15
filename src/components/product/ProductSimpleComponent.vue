@@ -2,7 +2,7 @@
     <div class="box-view">
         <span class="product-name"> {{product.name}} </span> 
         <span class="product-producer"> {{product.producer}} </span>
-        <span class="product-price"> R$ {{product.price}} </span>
+        <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
         <span class="amount-warning" :class="{available: product.available, unavailable: !product.available}">
             <span>Indisponível </span>
         </span>
@@ -86,10 +86,24 @@ export default {
         margin: 1em 0em 0.5em 0em;
     }
 
-    .box-view:hover > .amount-warning {
+    .available{
         background-color: #242B3A;
-        color: #FFFFFF;
+        color: #242B3A;
+    }
 
+    .unavailable{
+        background-color: #FFFFFF;
+    }
+
+    .box-view:hover > .available{
+        background-color: #FFFFFF;
+        color: #FFFFFF;
+        transition: .15s ease-in-out;
+    }
+
+    .box-view:hover > .unavailable{
+        background-color: #FFFFFF;
+        color: #242B3A;
         transition: .15s ease-in-out;
     }
 </style>
