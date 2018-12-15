@@ -5,6 +5,7 @@
         <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
         <span class="pharma-infos"><strong>Código:</strong> {{product.code}}</span>
         <span class="pharma-infos"><strong>Quantidade:</strong> {{product.amount}}</span>
+        <span class="pharma-infos"><strong>Categoria:</strong> {{product.category.name}}</span>
         <router-link id="edit-product" target="_blank" :to="`/products/${product.code}`">Editar</router-link>
     </div>
 </template>
@@ -36,7 +37,7 @@
         padding: 1em 2em;
         margin: 0.5em;
         width: 15em;
-        height: 12em;
+        height: 15em;
     }
 
     .box-view:hover {
