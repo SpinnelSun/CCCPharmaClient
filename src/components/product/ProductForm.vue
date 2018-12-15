@@ -68,6 +68,7 @@
         border: none;
         border-bottom: 0.05em solid #FFFFFF;
 
+        font-family: "Lato";
         font-size: 1.05em;
 
         background-color: #242B3A;

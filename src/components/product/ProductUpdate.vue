@@ -1,7 +1,6 @@
 <template>
     <div>
         <product-form title="Atualizar Produto" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
-
     </div>
 </template>
 
@@ -33,13 +32,12 @@
                 console.log(response.status);
                 this.isError = response.status != HTTP_STATUS_CREATED;
                 this.isSucess = !this.isError;
-                this.alertRegisterSituation();
+                this.alertUpdateSituation();
             }, 
-
-            alertRegisterSituation (){
-                if(this.isError){
+            alertUpdateSituation() {
+                if (this.isError) {
                     alert("Impossível registrar o produto. Informações inválidas!");
-                }else if(this.isSucess){
+                } else if (this.isSucess) {
                     alert("Produto registrado com sucesso!");
                 }
             }

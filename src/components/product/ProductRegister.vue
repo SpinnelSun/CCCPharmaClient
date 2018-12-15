@@ -56,13 +56,12 @@
                 console.log(response);
                 this.isError = response.status != HTTP_STATUS_CREATED;
                 this.isSucess = !this.isError; 
-                this.alertUpdateSituation();
+                this.alertRegisterSituation();
             }, 
-
-            alertUpdateSituation (){
-                if(this.isError){
+            alertRegisterSituation() {
+                if (this.isError) {
                     alert("Impossível registrar o produto. Informações inválidas!");
-                }else if(this.isSucess){
+                } else if (this.isSucess) {
                     alert("Produto registrado com sucesso!");
                 }
             }
@@ -107,6 +106,7 @@
         border: none;
         border-bottom: 0.05em solid #FFFFFF;
 
+        font-family: "Lato";
         font-size: 1.05em;
 
         background-color: #242B3A;
