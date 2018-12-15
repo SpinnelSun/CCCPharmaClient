@@ -1,20 +1,22 @@
 <template>
-    <div id="product-form">
-        <form v-on:submit.prevent="$emit('handleSubmitProduct', product)">
-            <label for="input_name">Nome do produto: </label>
-            <input v-model="product.name" id="input_name" required/>
+    <div id="form-container">
+        <div id="product-form">
+            <form v-on:submit.prevent="$emit('handleSubmitProduct', product)">
+                <label for="input_name">Nome do Produto: </label>
+                <input v-model="product.name" id="input_name" required/>
 
-            <label for="input_price">Preço</label>
-            <input v-model="product.price" id="input_price" required/>
+                <label for="input_price">Preço:</label>
+                <input v-model="product.price" id="input_price" required/>
 
-            <label for="input_producer">Fabricante</label>
-            <input v-model="product.producer" id="input_producer" required/>
+                <label for="input_producer">Fabricante:</label>
+                <input v-model="product.producer" id="input_producer" required/>
 
-            <label for="input_amount">Quantidade</label>
-            <input v-model="product.amount" id="input_amount" required/>
+                <label for="input_amount">Quantidade:</label>
+                <input v-model="product.amount" id="input_amount" required/>
 
-            <button>{{title}}</button>
-        </form>
+                <button>{{title}}</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -28,57 +30,76 @@ export default {
     
 }
 </script>
+
 <style scoped>
-body {
-    font-family: 'sans';
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin: 0;
-}
+    @import url("https://fonts.googleapis.com/css?family=Lato");
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+ 
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-label{
-    text-align: left;
-    padding: 18px;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        border-radius: 4em;
+        
+        font-family: "Lato";
+        
+        background-color: #242B3A;
+        color: #FFFFFF;
+        
+        padding: 2em 0em 1em 0em;
+        width: 30em;
+    }
 
-}
+    label {
+        font-weight: bold;
+        font-family: "Raleway";
+        font-size: 1.05em;
+    }
 
-form {
-    padding: 1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    
-}
+    input {
+        border: none;
+        border-bottom: 0.05em solid #FFFFFF;
 
-input {
-    width: 25%;
-    height: 50%;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    font-size: 1.1em;
-    border-bottom: 1px solid #ac7c4f;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: rgb(182, 182, 182);
-}
+        font-size: 1.05em;
 
-input:hover{
-    border-bottom: 1px solid #000000;
-}
+        background-color: #242B3A;
+        color: #FFFFFF;
+        
+        width: 65%;
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+        padding: 0.5em 1em;
+    }
 
-button {
-  background-color:#000000;
-  color:white;
-  font-size: 1.1em;
-  border: 0;
-  cursor:pointer;
-  padding: 1em;
-  text-align:center;
-  transition: .2s ease-in-out;
-}
+    button {
+        border: 0.08em solid #FFFFFF;
+        border-radius: 0.75em;
 
+        text-align:center;
+        font-weight: bold;
+        font-family: "Raleway";
+        font-size: 1.2em;
+
+        background-color:#242B3A;
+        color:#FFFFFF;
+        
+        margin: 0.5em 0em;
+        padding: 0.5em 1.0em;
+    }
+
+    button:hover {
+        border: 0.08em solid #242B3A;
+        background-color:#FFFFFF;
+        color:#242B3A;
+        
+        transition: .2s ease-in-out;
+    }
 </style>
-

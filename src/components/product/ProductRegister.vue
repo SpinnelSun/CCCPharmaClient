@@ -1,119 +1,135 @@
-<template id = "form-update">
-    <div>
+<template>
+    <div id="form-container">
+        <div id="product-register-form">
+            <form>
+                <label for="input_code">Código do Produto:</label>
+                <input v-model="product.code" id="input_code" required/>
 
-        <div class="register-datas">
-            <label for="input_code">Codigo</label><br><br>
-            <input v-model="product.code" id="input_code" required/> <br>
+                <label for="input_category">Categoria:</label>
+                <select v-model="product.category">
+                    <option v-for="category in categories" :value="category" :key="category.name">
+                        {{ category.name }}
+                    </option>
+                </select>
 
-            <label for="input_category">Categoria</label><br><br>
-            <select v-model="product.category">
-                <option v-for="category in categories" :value="category" :key="category.name">
-                    {{ category.name }}
-                </option>
-            </select>
-            <product-form :product=product title="Registrar" v-on:handleSubmitProduct="handleSubmitProduct">
-            </product-form>
+                <product-form :product=product title="Registrar Produto" v-on:handleSubmitProduct="handleSubmitProduct"></product-form>
+            </form>
+
+            <span :class="{error: isError}" v-if="isError">
+                <i class="fa fa-warning"></i>
+                Houve um erro no registro dos dados. Reveja suas informações!
+            </span>
+            <span :class="{sucess: isSucess}" v-if="isSucess">
+                <i class="fa fa-check"></i>
+                Produto registrado com sucesso!
+            </span>
         </div>
-        <span :class="{error: isError}" v-if="isError">
-            <i class="fa fa-warning"></i>
-            Houve um erro na atualização de dados. Reveja suas informações.
-        </span>
-        <span :class="{sucess: isSucess}" v-if="isSucess">
-            <i class="fa fa-check"></i>
-            Produto atualizado com sucesso.
-        </span>
     </div>
 </template>
 
-
 <script>
-import { save } from '@/services/productService'
-import { get } from '@/services/categoryService';
-import ProductForm from '@/components/product/ProductForm'
+    import ProductForm from '@/components/product/ProductForm'
 
-export default {
-    name: 'ProductList',
+    import { save } from '@/services/productService'
+    import { get } from '@/services/categoryService';
 
-    data() {
-        return {
-            product : {
-                name: '',
-                price: '',
-                amount: '',
-                producer: '',
-                category: {},
-                code: ''
-            },
-            categories: [],
-            isError: false,
-            isSucess: false
+    export default {
+        name: 'ProductList',
+
+        data() {
+            return {
+                product : {
+                    name: '',
+                    price: '',
+                    amount: '',
+                    producer: '',
+                    category: {},
+                    code: ''
+                },
+                categories: [],
+                isError: false,
+                isSucess: false
+            }
+        },
+        async created(){
+            const response = await get();
+            this.categories = response.data;
+        },
+        components: {
+            ProductForm
+        },
+        methods: {
+            async handleSubmitProduct (product) {
+                const HTTP_STATUS_CREATED = 201;
+                const response = await save(product);
+                this.isError = response.status != HTTP_STATUS_CREATED;
+                this.isSucess = !this.isError; 
+            }, 
         }
-    },
-    async created(){
-        const response = await get();
-        this.categories = response.data;
-    },
-    components: {
-        ProductForm
-    },
-    methods: {
-        async handleSubmitProduct (product) {
-            const HTTP_STATUS_CREATED = 201;
-            const response = await save(product);
-            this.isError = response.status != HTTP_STATUS_CREATED;
-            this.isSucess = !this.isError; 
-        }, 
     }
-}
-
 </script>
 
 <style scoped>
+    @import url("https://fonts.googleapis.com/css?family=Lato");
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
 
-.register-datas {
-    padding-top: 3cm;
-    padding-bottom: 0cm;
-}
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        border-radius: 4em;
+        
+        font-family: "Lato";
+        
+        background-color: #242B3A;
+        color: #FFFFFF;
+        
+        padding: 2em 0em 1em 0em;
+        width: 30em;
+    }
 
-form {
-    margin: 10%;
-    padding: 1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
+    label {
+        font-weight: bold;
+        font-family: "Raleway";
+        font-size: 1.05em;
+    }
 
-input {
-    width: 25%;
-    height: 50%;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    font-size: 1.1em;
-    border-bottom: 1px solid #ac7c4f;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: rgb(182, 182, 182);
-}
+    input {
+        border: none;
+        border-bottom: 0.05em solid #FFFFFF;
 
-input:hover{
-    border-bottom: 1px solid #000000;
-}
+        font-size: 1.05em;
 
-button {
-  background-color:#000000;
-  color:white;
-  font-size: 1.1em;
-  border: 0;
-  cursor:pointer;
-  padding: 1em;
-  text-align:center;
-  transition: .2s ease-in-out;
-}
+        background-color: #242B3A;
+        color: #FFFFFF;
+        
+        width: 65%;
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+        padding: 0.5em 1em;
+    }
 
+    select {
+        border-bottom: 0.05em solid #FFFFFF;
 
-
+        font-family: "Lato";
+        font-size: 1em;
+        
+        background-color: #242B3A;
+        color: #FFFFFF;
+        
+        width: 70%;
+        height: 2em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding: 0em 1em;
+    }
 </style>
