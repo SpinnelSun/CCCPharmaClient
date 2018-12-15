@@ -1,25 +1,19 @@
 <template>
-  <div id="nav-bar">
+  <nav-bar>
     <router-link to="/notifications">Home</router-link>
+    <router-link to="/products">Products</router-link>
     <router-link to="/categories">Categories</router-link>
+    <router-link to="/sales">Sales</router-link>
     <!-- ADICIONAR PRODUCTS E SALES-->
-    <router-view/>
-  </div>
+  </nav-bar>
 </template>
 
 <script>
+import NavBar from '@/views/NavBar'
 export default {
-  name: 'AdminNavBar'
+  name: 'AdminNavBar',
+  components: {
+    NavBar
+  }
 }
 </script>
-
-<style scoped>
-#nav-bar{
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   align-items: flex-start;
-   background-color: #242B3A; 
-}
-
-</style>

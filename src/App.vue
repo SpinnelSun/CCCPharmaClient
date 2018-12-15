@@ -1,15 +1,19 @@
 <template>
   <div id="app">
     <admin-nav-bar></admin-nav-bar>
+    <br><br><br><br>
+    <client-nav-bar></client-nav-bar>
   </div>
 </template>
 
 <script>
 import AdminNavBar from '@/views/AdminNavBar'
+import ClientNavBar from '@/views/ClientNavBar'
 export default {
   name: 'App',
   components:{
-    AdminNavBar
+    AdminNavBar,
+    ClientNavBar
   }
 }
 </script>
