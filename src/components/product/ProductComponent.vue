@@ -1,31 +1,26 @@
 <template>
     <div id="product-component" class="product">
-      <div class="box">
-        <article class="media">
 
+      <div class="box">
           <div class="media-content">
+
                 <h3 id="product-name"> {{product.name}}  </h3> 
                 <h2 id="product-price"> R$ {{product.price.toFixed(2)}} </h2>
+                
                 <span :class="{available: product.available, unavailable: !product.available}">
                   <i class="fa fa-warning"></i>
                     <p>INDISPONÍVEL </p>
                 </span>
 
                 <div class="extra-infos">
-                  <p>Código: {{product.code}} <br>
-                  Fabricante: {{product.producer}} <br>
-                  Quantidade: {{product.amount}}</p>
+                  <span>Código: {{product.code}}</span>
+                  <span>Fabricante: {{product.producer}}</span>
+                  <span>Quantidade: {{product.amount}}</span>
 
                 </div>
 
-                
-            </div>
-            <div class="admin-options">
               <router-link id="clickable" target="_blank" :to="`/products/${product.code}`">EDITAR</router-link>
-
           </div>
-        </article>
-
       </div>
     </div>  
 </template>
@@ -50,32 +45,26 @@ export default {
   margin-right: 5px;
   margin-top: 0px;
   padding: 0 7.5px;
-  color: #242B3A;
+  color: #FFFFFF;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-decoration: none;
 }
 
-.admin-options:hover{
-  text-decoration: unset;
-}
-
 #product-name{
   text-align: left;
-  color: #242B3A;
   margin: 0px;
 }
 
 #product-price{
   text-align: right;
-  color: #242B3A;
 }
 .unavailable{
   text-align: left;
-  color: #707070;
+  color: #FFFFFF;
 }
 .available{
   text-align: left;
-  color: #DDDDDD;
+  color: #242B3A;
 }
 
 template{
@@ -99,13 +88,17 @@ template{
 .box {
   width: 300px;
   height: 210px;
+
   margin-bottom: 0;
   border-radius: 0;
-  background: #DDDDDD;
-  color: #FFF;
+
+  background-color: #242B3A;
+  border: 5px solid rgb(0, 0, 0);
+  color: #FFFFFF;
+  
   padding: 5px;
   margin: 10px;
-  border: 5px solid #242B3A;
+  
 }
 
 .box:hover{
