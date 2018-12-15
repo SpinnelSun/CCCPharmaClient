@@ -4,6 +4,11 @@ import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
+import SaleRegister from '@/components/sale/SaleRegister'
+import ProductList from '@/components/product/ProductList'
+import ProductUpdate from '@/components/product/ProductUpdate'
+import ProductSimpleList from '@/components/product/ProductSimpleList'
+import ProductRegister from '@/components/product/ProductRegister'
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
@@ -40,6 +45,34 @@ const router =  new Router({
       }
     },
     {
+      path: '/saleRegister',
+      name: 'SaleRegister',
+      component: SaleRegister,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
+    },
+    {
+      path: '/products',
+      name: 'ProductList',
+      component: ProductList
+    },
+    {
+      path: '/products/:code',
+      name: 'ProductUpdate',
+      component: ProductUpdate
+    },
+    {
+      path: '/products-simple',
+      name: 'ProductSimpleList',
+      component: ProductSimpleList
+    },
+    {
+      path: '/products-register',
+      name: 'ProductRegister',
+      component: ProductRegister
+    },{
       path: '/categories',
       name: 'CategoryList',
       component: CategoryList,

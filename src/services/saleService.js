@@ -3,7 +3,7 @@ import http from '@/config/axios';
 const BASE_PATH = '/sales'
 
 const save = (sale) => {
-    return http.get(`${BASE_PATH}`, sale)
+    return http.post(`${BASE_PATH}`, sale)
                 .then(response => response)
                 .catch(error => error.response);
 }
