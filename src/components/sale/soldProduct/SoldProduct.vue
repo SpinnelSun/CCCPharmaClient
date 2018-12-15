@@ -1,18 +1,18 @@
 <template>
     <div class="sold-product-row">
-        <div id="product-name">{{soldProduct.product.name}}</div>
-        <div id="product-quantity">{{soldProduct.quantity}}</div>
-        <div id="product-price">{{soldProduct.product.price}}</div>
+        <div id="product-name"> {{soldProduct.product.name}} </div>
+        <div id="product-quantity"> {{soldProduct.quantity}} </div>
+        <div id="product-price"> R$ {{soldProduct.product.price.toFixed(2)}} </div>
     </div>
 </template>
 
 <script>
-    export default {
-    name: 'SoldProduct',
-    props: {
-      soldProduct: Object
+        export default {
+        name: 'SoldProduct',
+        props: {
+        soldProduct: Object
+        }
     }
-}
 </script>
  
 <style scoped>
@@ -33,8 +33,8 @@
 
         color: #242B3A;
 
-        padding: 0.3em 0em;
-        width: 54.3em;
+        padding: 0.1em 0em;
+        width: 40em;
         height: 2em;
     }
 </style>
