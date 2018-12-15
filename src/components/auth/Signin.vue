@@ -1,6 +1,6 @@
 <template>
     <div>
-        <user-form title="Sign in" v-on:handleSubmit="handleSubmit">
+        <user-form title="Entrar" v-on:handleSubmit="handleSubmit">
         </user-form>
         <span :class="{message, error: isError}" v-if="isError">
             <i class="fa fa-warning">
@@ -28,7 +28,13 @@ export default {
             this.isError = response.status != HTTP_STATUS_OK;
 
             if(!this.isError){
-                this.$router.replace(this.$route.query.redirect || '/home')
+                const role = response.data.roles[0].name;
+                let home = '/products';
+                if(role == "ROLE_ADMIN"){
+                    home = '/notifications'
+                }
+
+                this.$router.replace(this.$route.query.redirect || home);
             }
         }
     },

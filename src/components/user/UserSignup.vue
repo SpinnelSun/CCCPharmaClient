@@ -1,6 +1,6 @@
 <template>
     <div>
-        <user-form title="Sign up" v-on:handleSubmit="handleSubmit">
+        <user-form title="Registrar" v-on:handleSubmit="handleSubmit">
         </user-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
@@ -14,27 +14,27 @@
 </template>
 
 <script>
-import { signup } from '@/services/userService'
-import UserForm from '@/components/user/UserForm'
+    import { signup } from '@/services/userService'
+    import UserForm from '@/components/user/UserForm'
 
-export default {
-    name: 'UserSignup',
-    data() {
-        return {
-            isError: false,
-            isSucess: false
-        }
-    },
-    methods: {
-        async handleSubmit (user) {
-          const HTTP_STATUS_CREATED = 201;
-          const response = await signup(user);
-          this.isError = response.status != HTTP_STATUS_CREATED;
-          this.isSucess = !this.isError;
+    export default {
+        name: 'UserSignup',
+        data() {
+            return {
+                isError: false,
+                isSucess: false
+            }
         },
-    },
-    components: {
-        UserForm
+        methods: {
+            async handleSubmit (user) {
+            const HTTP_STATUS_CREATED = 201;
+            const response = await signup(user);
+            this.isError = response.status != HTTP_STATUS_CREATED;
+            this.isSucess = !this.isError;
+            },
+        },
+        components: {
+            UserForm
+        }
     }
-}
 </script>

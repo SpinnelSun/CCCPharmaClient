@@ -1,45 +1,82 @@
 <template>
-  <div id="app">
-    <router-link to="/signin">Login</router-link>
-    <router-link to="/signup">Signup</router-link> <br> <br>
-    <router-link to="/products">Products to Admin | </router-link>
-    <router-link to="/products-simple">  Products to client |</router-link>
-    <router-link to="/products-unavailable">  Products Unavailable |</router-link>
-    <router-link to="/products-register"> Register Products</router-link>
-    <router-link to="/categories">Categories</router-link>
-    <router-link to="/notifications">Notification</router-link>
-    <router-view/>
-  </div>
+    <div id="app">
+        <nav class="shadowed">
+            <component :is="layout"></component>
+        </nav>
+        <main class="shadowed">
+            <router-view/>
+        </main> 
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+    import AdminNavBar from '@/views/AdminNavBar'
+    import ClientNavBar from '@/views/ClientNavBar'
+    import CommonNavBar from '@/views/CommonNavBar'
+
+    export default {
+        name: 'App',
+        computed: {
+            layout() {
+                if (this.$route.meta.isAdmin) {
+                    return `admin-nav-bar`;
+                } else if (this.$route.meta.isClient) {
+                    return `client-nav-bar`;
+                } else {
+                    return `common-nav-bar`;
+                }
+            }
+        },
+        components:{
+            AdminNavBar,
+            ClientNavBar,
+            CommonNavBar
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-.message {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 3px 3px 3px 3px;
-}
+    #app {
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
+        grid-template-rows: repeat(5, 1fr); 
 
-.error {
-  color: #D8000C;
-  background-color: #FFBABA;
-}
+        background-color: #EEEEEE;
+        font-family: 'Lato';
 
-.sucess {
-  color: #270;
-  background-color: #DFF2BF;
-}
+        height: 100%;
+    }
+
+    nav {
+        grid-column: 1;
+        grid-row: 1 / 7;
+
+        background-color: #242B3A;
+        border-radius: 2em;
+
+        margin: 2em 0em 2em 2em;
+    }
+
+    main {
+        grid-row: 1 / 7;
+        grid-column: 2 / 5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #FCFCFC;
+        border: 0.1em solid #242B3A;
+        border-radius: 2em;
+
+        margin: 2em 2em;
+    }
+
+    .shadowed{
+    -webkit-box-shadow: 0 2em 5em #777777;
+       -moz-box-shadow: 0 2em 5em #777777;
+            box-shadow: 0 2em 5em #777777;
+    }
 </style>

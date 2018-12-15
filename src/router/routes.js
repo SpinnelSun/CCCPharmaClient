@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 
@@ -19,15 +18,6 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
-      meta: {
-        requiresAuth: true,
-        is_admin: true
-      }
-    },
-    {
-      path: '/signin',
       name: 'Signin',
       component: Signin
     },
@@ -39,12 +29,20 @@ const router =  new Router({
     {
       path: '/products',
       name: 'ProductDetailedList',
-      component: ProductDetailedList
+      component: ProductDetailedList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },
     {
       path: '/products/:code',
       name: 'ProductUpdate',
-      component: ProductUpdate
+      component: ProductUpdate,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },
     {
       path: '/products-simple',
@@ -54,19 +52,36 @@ const router =  new Router({
     {
       path: '/products-register',
       name: 'ProductRegister',
-      component: ProductRegister
+      component: ProductRegister,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },{
       path: '/categories',
       name: 'CategoryList',
-      component: CategoryList
+      component: CategoryList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },{
       path: '/notifications',
       name: 'Notification',
-      component: NotificationList
+      component: NotificationList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },{
       path:'/products-unavailable',
       name: ProductUnavailableList,
-      component: ProductUnavailableList
+      component: ProductUnavailableList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+        isClient: true
+      }
     }
   ]
 })
@@ -78,7 +93,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/signin' })
     }else{
       const authorityUser = localStorage.getItem('authority');
-      if(to.matched.some(record => record.meta.is_admin)){
+      if(to.matched.some(record => record.meta.isAdmin)){
         if(authorityUser == 'ROLE_ADMIN') {
           next()
         } else {
