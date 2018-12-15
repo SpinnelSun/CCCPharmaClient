@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import CategoryList from '@/components/category/CategoryList'
+import NotificationList from '@/components/notification/NotificationList'
 
 Vue.use(Router)
 
@@ -32,6 +33,10 @@ const router =  new Router({
       path: '/categories',
       name: 'CategoryList',
       component: CategoryList
+    },{
+      path: '/notifications',
+      name: 'Notification',
+      component: NotificationList
     }
   ]
 })
