@@ -10,6 +10,7 @@
 
 <script>
 import NavBar from '@/views/NavBar'
+import { logout } from '@/services/authService'
 export default {
   name: 'AdminNavBar',
   components: {

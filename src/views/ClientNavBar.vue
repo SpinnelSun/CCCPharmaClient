@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import NavBar from '@/views/NavBar';
+import NavBar from '@/views/NavBar'
+import { logout } from '@/services/authService'
+
 export default {
   name: 'ClientNavBar',
   components: {
