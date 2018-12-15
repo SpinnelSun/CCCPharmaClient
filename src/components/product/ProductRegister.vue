@@ -15,14 +15,6 @@
                 <product-form :product=product title="Registrar Produto" v-on:handleSubmitProduct="handleSubmitProduct"></product-form>
             </form>
 
-            <span :class="{error: isError}" v-if="isError">
-                <i class="fa fa-warning"></i>
-                Houve um erro no registro dos dados. Reveja suas informações!
-            </span>
-            <span :class="{sucess: isSucess}" v-if="isSucess">
-                <i class="fa fa-check"></i>
-                Produto registrado com sucesso!
-            </span>
         </div>
     </div>
 </template>
@@ -64,7 +56,16 @@
                 console.log(response);
                 this.isError = response.status != HTTP_STATUS_CREATED;
                 this.isSucess = !this.isError; 
+                this.alertUpdateSituation();
             }, 
+
+            alertUpdateSituation (){
+                if(this.isError){
+                    alert("Impossível registrar o produto. Informações inválidas!");
+                }else if(this.isSucess){
+                    alert("Produto registrado com sucesso!");
+                }
+            }
         }
     }
 </script>
