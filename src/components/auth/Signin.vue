@@ -28,7 +28,13 @@ export default {
             this.isError = response.status != HTTP_STATUS_OK;
 
             if(!this.isError){
-                this.$router.replace(this.$route.query.redirect || '/home')
+                const role = response.data.roles[0].name;
+                let home = '/products';
+                if(role == "ROLE_ADMIN"){
+                    home = '/notifications'
+                }
+
+                this.$router.replace(this.$route.query.redirect || home);
             }
         }
     },

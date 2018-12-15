@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 import CategoryList from '@/components/category/CategoryList'
@@ -12,12 +11,8 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
-      meta: {
-        requiresAuth: true,
-        is_admin: true
-      }
+      name: 'Signin',
+      component: Signin
     },
     {
       path: '/signin',
@@ -32,11 +27,19 @@ const router =  new Router({
     {
       path: '/categories',
       name: 'CategoryList',
-      component: CategoryList
+      component: CategoryList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },{
       path: '/notifications',
       name: 'Notification',
-      component: NotificationList
+      component: NotificationList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     }
   ]
 })
@@ -48,7 +51,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/signin' })
     }else{
       const authorityUser = localStorage.getItem('authority');
-      if(to.matched.some(record => record.meta.is_admin)){
+      if(to.matched.some(record => record.meta.isAdmin)){
         if(authorityUser == 'ROLE_ADMIN') {
           next()
         } else {

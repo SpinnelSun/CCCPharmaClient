@@ -14,27 +14,27 @@
 </template>
 
 <script>
-import { signup } from '@/services/userService'
-import UserForm from '@/components/user/UserForm'
+    import { signup } from '@/services/userService'
+    import UserForm from '@/components/user/UserForm'
 
-export default {
-    name: 'UserSignup',
-    data() {
-        return {
-            isError: false,
-            isSucess: false
-        }
-    },
-    methods: {
-        async handleSubmit (user) {
-          const HTTP_STATUS_CREATED = 201;
-          const response = await signup(user);
-          this.isError = response.status != HTTP_STATUS_CREATED;
-          this.isSucess = !this.isError;
+    export default {
+        name: 'UserSignup',
+        data() {
+            return {
+                isError: false,
+                isSucess: false
+            }
         },
-    },
-    components: {
-        UserForm
+        methods: {
+            async handleSubmit (user) {
+            const HTTP_STATUS_CREATED = 201;
+            const response = await signup(user);
+            this.isError = response.status != HTTP_STATUS_CREATED;
+            this.isSucess = !this.isError;
+            },
+        },
+        components: {
+            UserForm
+        }
     }
-}
 </script>
