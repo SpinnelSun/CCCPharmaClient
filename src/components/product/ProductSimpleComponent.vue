@@ -4,7 +4,7 @@
         <span class="product-producer"> {{product.producer}} </span>
         <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
         <span class="amount-warning" :class="{available: product.available, unavailable: !product.available}">
-            <span>Indisponível </span>
+            Indisponível
         </span>
     </div>
 </template>
@@ -78,32 +78,34 @@ export default {
         border-radius: 0.5em;
 
         font-family: "Raleway";
-
-        background-color: #FFFFFF;
-        color: #242B3A;
+        font-size: 1.1em;
 
         padding: 0.5em;
         margin: 1em 0em 0.5em 0em;
     }
 
-    .available{
+    .available {
         background-color: #242B3A;
         color: #242B3A;
     }
 
-    .unavailable{
-        background-color: #FFFFFF;
-    }
-
-    .box-view:hover > .available{
+    .box-view:hover > .available {
         background-color: #FFFFFF;
         color: #FFFFFF;
+
         transition: .15s ease-in-out;
     }
 
-    .box-view:hover > .unavailable{
+    .unavailable {
+        border: 0.1em solid #242B3A;
         background-color: #FFFFFF;
         color: #242B3A;
+    }
+
+    .box-view:hover > .unavailable {
+        background-color: #FFFFFF;
+        color: #242B3A;
+
         transition: .15s ease-in-out;
     }
 </style>

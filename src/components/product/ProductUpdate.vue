@@ -1,4 +1,4 @@
-<template id = "form-update">
+<template>
     <div>
         <product-form title="Atualizar Produto" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
         <span :class="{error: isError}" v-if="isError">
@@ -12,14 +12,12 @@
     </div>
 </template>
 
-
 <script>
     import { update, findByCode } from '@/services/productService'
     import ProductForm from '@/components/product/ProductForm'
 
     export default {
         name: 'ProductList',
-
         data() {
             return {
                 code: this.$route.params.code,
@@ -31,12 +29,10 @@
         components: {
             ProductForm
         },
-
-        async created (){
+        async created () {
             const response =  await findByCode(this.$route.params.code);
             this.product = response.data;
         },
-
         methods: {
             async handleSubmitProduct (product) {
                 const HTTP_STATUS_CREATED = 200;
@@ -47,5 +43,4 @@
             }, 
         }
     }
-
 </script>

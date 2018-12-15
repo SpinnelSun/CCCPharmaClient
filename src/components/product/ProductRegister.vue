@@ -35,7 +35,6 @@
 
     export default {
         name: 'ProductRegister',
-
         data() {
             return {
                 product : {

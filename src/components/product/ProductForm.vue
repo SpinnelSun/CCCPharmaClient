@@ -21,14 +21,14 @@
 </template>
 
 <script>
-export default {
-    name: 'ProductForm',
-    props: {
-        title: String,
-        product: Object
+    export default {
+        name: 'ProductForm',
+        props: {
+            title: String,
+            product: Object
+        }
+        
     }
-    
-}
 </script>
 
 <style scoped>

@@ -1,109 +1,108 @@
 <template>
-    <div id="product-component" class="product">
-
-      <div class="box">
-          <div class="media-content">
-
-                <h3 id="product-name"> {{product.name}}  </h3> 
-                <h2 id="product-price"> R$ {{product.price.toFixed(2)}} </h2>
-                
-                <span :class="{available: product.available, unavailable: !product.available}">
-                  <i class="fa fa-warning"></i>
-                    <p>INDISPONÍVEL </p>
-                </span>
-
-                <div class="extra-infos">
-                  <span>Código: {{product.code}}</span>
-                  <span>Fabricante: {{product.producer}}</span>
-                  <span>Quantidade: {{product.amount}}</span>
-
-                </div>
-
-              <router-link id="clickable" target="_blank" :to="`/products/${product.code}`">EDITAR</router-link>
-          </div>
-      </div>
-    </div>  
+    <div class="box-view">
+        <span class="product-name"> {{product.name}} </span> 
+        <span class="product-producer"> {{product.producer}} </span>
+        <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
+        <span class="pharma-infos"><strong>Código:</strong> {{product.code}}</span>
+        <span class="pharma-infos"><strong>Quantidade:</strong> {{product.amount}}</span>
+        <router-link id="edit-product" target="_blank" :to="`/products/${product.code}`">Editar</router-link>
+    </div>
 </template>
 
 <script>
-export default {
-    name: 'ProductComponent',
-    props: {
-      product: Object
+    export default {
+        name: 'ProductComponent',
+        props: {
+            product: Object
+        }
     }
-}
 </script>
 
 <style>
-.extra-infos{
-  text-align: left;
-  color: #707070
-}
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-#clickable{
-  text-decoration: none;
-  margin-right: 5px;
-  margin-top: 0px;
-  padding: 0 7.5px;
-  color: #FFFFFF;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-decoration: none;
-}
+    .box-view {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
 
-#product-name{
-  text-align: left;
-  margin: 0px;
-}
+        border: 0.1em solid #242B3A;
+        border-radius: 1.5em; 
 
-#product-price{
-  text-align: right;
-}
-.unavailable{
-  text-align: left;
-  color: #FFFFFF;
-}
-.available{
-  text-align: left;
-  color: #242B3A;
-}
+        background-color: #242B3A;
+        color: #FFFFFF;
 
-template{
-  height: 100%;
-  padding-top: 10px;
-  background: #e6ecf1;
-}
+        padding: 1em 2em;
+        margin: 0.5em;
+        width: 15em;
+        height: 12em;
+    }
 
-#product-component {
-  height: 100%;
-  padding-top: 0px;
-  text-align: center;
-}
+    .box-view:hover {
+        border: 0.1em solid #242B3A;
+        background-color: #FFFFFF;
+        color: #242B3A;
 
-.product {
-  max-width: 500px;
-  margin: 0 auto;
-  padding-bottom: 5px;
-}
+        transition: .15s ease-in-out;
+    }
+    
+    .product-name {
+        justify-self: center;
 
-.box {
-  width: 300px;
-  height: 210px;
+        font-family: "Lato";
+        font-weight: bold;
+        font-size: 1.5em;
+    }
 
-  margin-bottom: 0;
-  border-radius: 0;
+    .product-producer {
+        justify-self: center;
+        align-self: flex-start;
 
-  background-color: #242B3A;
-  border: 5px solid rgb(0, 0, 0);
-  color: #FFFFFF;
-  
-  padding: 5px;
-  margin: 10px;
-  
-}
+        font-family: "Lato";
+    }
 
-.box:hover{
-  margin: 5px;
-}
+    .product-price {
+        justify-self: center;
+        align-self: flex-start;
 
+        font-family: "Lato";
+        font-weight: bold;
+        font-size: 1.5em;
+
+        margin-bottom: 0.5em;
+    }
+
+    .pharma-infos {
+        justify-self: center;
+        align-self: center;
+
+        letter-spacing: 0.02em;
+        font-family: "Lato";
+    }
+
+    #edit-product {
+        justify-self: center;
+        align-self: flex-start;
+
+        border: 0.1em solid #242B3A;
+        border-radius: 0.5em;
+
+        text-decoration-line: none;
+        font-family: "Raleway";
+        font-weight: bold;
+        font-size: 0.8em;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+
+        margin: 1em 0em 0em 0em;
+        padding: 0.5em 1em;
+    }
+
+    #edit-product:hover {
+        background-color: #242B3A;
+        color: #FFFFFF;
+    }
 </style>
 
