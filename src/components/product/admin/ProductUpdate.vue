@@ -6,7 +6,7 @@
 
 <script>
     import { update, findByCode } from '@/services/productService'
-    import ProductForm from '@/components/product/adminActions/ProductForm'
+    import ProductForm from '@/components/product/admin/ProductForm'
 
     export default {
         name: 'ProductUpdate',

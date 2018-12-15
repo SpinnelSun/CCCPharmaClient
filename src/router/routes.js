@@ -3,11 +3,13 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
-import ProductList from '@/components/product/ProductList'
-import ProductUpdate from '@/components/product/adminActions/ProductUpdate'
-import ProductSimpleList from '@/components/product/clientLists/ProductSimpleList'
-import ProductUnavailableList from '@/components/product/clientLists/ProductUnavailableList'
-import ProductRegister from '@/components/product/adminActions/ProductRegister'
+
+import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
+import ProductUpdate from '@/components/product/admin/ProductUpdate'
+import ProductSimpleList from '@/components/product/client/ProductSimpleList'
+import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
+import ProductRegister from '@/components/product/admin/ProductRegister'
+
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
@@ -36,8 +38,8 @@ const router =  new Router({
     },
     {
       path: '/products',
-      name: 'ProductList',
-      component: ProductList
+      name: 'ProductDetailedList',
+      component: ProductDetailedList
     },
     {
       path: '/products/:code',
