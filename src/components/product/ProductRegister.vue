@@ -14,8 +14,6 @@
             <product-form :product=product title="Registrar" v-on:handleSubmitProduct="handleSubmitProduct">
             </product-form>
         </div>
-
-        {{product}}
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
             Houve um erro na atualização de dados. Reveja suas informações.
