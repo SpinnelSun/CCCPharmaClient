@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="products-grid">
-            <div class="product-item" v-for="product in products" :key="product.code"> 
-                <product-simple-component v-if="product.available === false"  :product=product></product-simple-component> 
+            <div class="product-item" v-for="product in products" v-if="product.available === false" :key="product.code"> 
+                <product-simple-component  :product=product></product-simple-component> 
             </div>
         </div>
     </div>
