@@ -1,6 +1,6 @@
 <template>
     <div>
-        <product-form title="Atualizar Produto" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
+        <product-form title="Atualizar Produto" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"></product-form>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
     import ProductForm from '@/components/product/adminActions/ProductForm'
 
     export default {
-        name: 'ProductList',
+        name: 'ProductUpdate',
         data() {
             return {
                 code: this.$route.params.code,

@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="products-grid">
-            <div class="product-item" v-for="product in products" v-if="product.available === false" :key="product.code"> 
-                <product-simple-component  :product=product></product-simple-component> 
+            <div class="product-item" v-for="product in products" v-if="!product.available" :key="product.code"> 
+                <product-simple-component :product=product></product-simple-component> 
             </div>
         </div>
     </div>
@@ -33,8 +33,8 @@
 <style>
     .products-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         justify-content: space-around;
         
         background-color:#FFFFFF;
@@ -46,4 +46,3 @@
         align-content: center;
     }
 </style>
-

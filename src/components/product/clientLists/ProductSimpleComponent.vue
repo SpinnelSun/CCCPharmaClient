@@ -2,14 +2,14 @@
     <div class="box-view">
         <span class="product-name"> {{product.name}} </span> 
         <span class="product-producer"> {{product.producer}} </span>
-        <span class="product-price" v-if="product.available === true"> R$ {{product.price.toFixed(2)}} </span>
-        <span class="amount-warning" v-if="product.available === false" >Indisponível  </span>
+        <span class="product-price" v-if="product.available"> R$ {{product.price.toFixed(2)}} </span>
+        <span class="amount-warning" v-if="!product.available" > Indisponível </span>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ProductComponent',
+    name: 'ProductSimpleComponent',
     props: {
       product: Object
     }
@@ -22,7 +22,7 @@ export default {
 
     .box-view {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
         align-items: center;
 
         border: 0.1em solid #242B3A;
@@ -34,7 +34,7 @@ export default {
         padding: 1em 2em;
         margin: 0.5em;
         width: 15em;
-        height: 12em;
+        height: 10em;
     }
 
     .box-view:hover {
@@ -46,7 +46,7 @@ export default {
     }
     
     .product-name {
-        justify-self: left;
+        align-self: center;
 
         font-family: "Lato";
         font-weight: bold;
@@ -54,15 +54,13 @@ export default {
     }
 
     .product-producer {
-        justify-self: left;
         align-self: flex-start;
 
         font-family: "Lato";
     }
 
     .product-price {
-        justify-self: right;
-        align-self: flex-start;
+        align-self: center;
 
         font-family: "Lato";
         font-weight: bold;
@@ -71,7 +69,7 @@ export default {
 
     .amount-warning {
         justify-self: center;
-        align-self: flex-end;
+        align-self: center;
 
         border-radius: 0.5em;
 
@@ -82,7 +80,6 @@ export default {
         color: #242B3A;
 
         padding: 0.5em;
-        margin: 1em 0em 0.5em 0em;
     }
 
     .box-view:hover > .amount-warning {

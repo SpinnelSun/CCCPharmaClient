@@ -24,7 +24,7 @@
 
     .box-view {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
         align-items: center;
 
         border: 0.1em solid #242B3A;

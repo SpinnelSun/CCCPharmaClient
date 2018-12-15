@@ -32,8 +32,8 @@
 <style>
     .products-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         justify-content: space-around;
         
         background-color:#FFFFFF;
