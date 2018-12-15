@@ -35,29 +35,35 @@
 </script>
  
 <style scoped>
-    select {
-        border: 0.1em solid #242B3A;
-        padding: 0.15em;
-        width: 5em;
-
-        background-color: #FFFFFF;
-        color: #242B3A;
-    }
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
     .category-row {
-        display: inline-grid;
+        display: grid;
+        align-items: center;
         justify-content: space-around;
         grid-template-columns: repeat(3, 1fr);
 
         border: 0.1em solid #242B3A;
-        padding: 0.3em 0em;
         border-top: none; 
-        width: 59.8em;
-        height: 2em;
-
-        align-items: center;
+        
+        font-family: "Lato";
+        font-size: 1.1em;
         text-align: center;
 
         color: #242B3A;
+
+        padding: 0.3em 0em;
+        width: 54.3em;
+        height: 2em;
+    }
+
+    select {
+        border: 0.1em solid #242B3A;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+
+        padding: 0.15em;
+        width: 5em;
     }
 </style>
