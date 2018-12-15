@@ -1,22 +1,12 @@
 <template>
-    <div id="product-simple-component" class="product">
-      <div class="box">
-        <article class="media">
-
-          <div class="media-content">
-                <h3 id="product-name"> {{product.name}}  </h3> 
-                <h5 id="product-producer"> {{product.producer}} </h5>
-                <span :class="{available: product.available, unavailable: !product.available}">
-                  <i class="fa fa-warning"></i>
-                    <p>INDISPONÍVEL </p>
-                </span>
-
-                <h2 id="product-price"> R$ {{product.price}} </h2>
-            </div>
-        </article>
-
-      </div>
-    </div>  
+    <div class="box-view">
+        <span class="product-name"> {{product.name}} </span> 
+        <span class="product-producer"> {{product.producer}} </span>
+        <span class="product-price"> R$ {{product.price}} </span>
+        <span class="amount-warning" :class="{available: product.available, unavailable: !product.available}">
+            <span>Indisponível </span>
+        </span>
+    </div>
 </template>
 
 <script>
@@ -29,62 +19,78 @@ export default {
 </script>
 
 <style>
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-#product-name{
-  text-align: left;
-  color: #242B3A;
-  margin: 0px;
-}
-#product-producer{
-    text-align: left;
-    color: #707070;
-}
-#product-price{
-  text-align: right;
-  color: #242B3A;
-}
-.unavailable{
-  text-align: left;
-  color: #707070;
-}
-.available{
-  text-align: left;
-  color: #DDDDDD;
-}
+    .box-view {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
 
-template{
-  height: 100%;
-  padding-top: 10px;
-  background: #e6ecf1;
-}
+        border: 0.1em solid #242B3A;
+        border-radius: 1.5em; 
 
-#product-component {
-  height: 100%;
-  padding-top: 0px;
-  text-align: center;
-}
+        background-color: #242B3A;
+        color: #FFFFFF;
 
-.product {
-  max-width: 500px;
-  margin: 0 auto;
-  padding-bottom: 5px;
-}
+        padding: 1em 2em;
+        margin: 0.5em;
+        width: 15em;
+        height: 10em;
+    }
 
-.box {
-  width: 300px;
-  height: 150px;
-  margin-bottom: 0;
-  border-radius: 0;
-  background: #DDDDDD;
-  color: #FFF;
-  padding: 5px;
-  margin: 10px;
-  border: 5px solid #242B3A;
-}
+    .box-view:hover {
+        border: 0.1em solid #242B3A;
+        background-color: #FFFFFF;
+        color: #242B3A;
 
-.box:hover{
-  margin: 5px;
-}
+        transition: .15s ease-in-out;
+    }
+    
+    .product-name {
+        justify-self: left;
 
+        font-family: "Lato";
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .product-producer {
+        justify-self: left;
+        align-self: flex-start;
+
+        font-family: "Lato";
+    }
+
+    .product-price {
+        justify-self: right;
+        align-self: flex-start;
+
+        font-family: "Lato";
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .amount-warning {
+        justify-self: center;
+        align-self: flex-end;
+
+        border-radius: 0.5em;
+
+        font-family: "Raleway";
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+
+        padding: 0.5em;
+        margin: 1em 0em 0.5em 0em;
+    }
+
+    .box-view:hover > .amount-warning {
+        background-color: #242B3A;
+        color: #FFFFFF;
+
+        transition: .15s ease-in-out;
+    }
 </style>
 
