@@ -12,13 +12,15 @@
             <button @click="addShoppingCart">Add to shopping cart</button>
 
             <button @click="registerSale">Register Sale</button>
+            {{soldProduct}}
+            {{sale}}
         </div>
 </template>
 
 <script>
     import { getProducts } from '@/services/productService'
     import { save } from '@/services/saleService'
-    import SaleRegisterItem from '@/components/sale/SaleRegisterItem'
+    import { findByEmail } from '@/services/userService'
     export default {
         name: 'SaleRegister',
         data() {
@@ -34,16 +36,16 @@
             const response = await getProducts();
             this.products = response.data.content;
         },
-        components: {
-            SaleRegisterItem
-        },
         methods:{
             addShoppingCart() {
-                this.sale.soldProducts.push(this.soldProduct);
+                console.log(this.soldProduct);
+                this.sale.soldProducts.push({"product": this.soldProduct});
                 this.soldProduct = {};
             },
             async registerSale() {
-                console.log(this.sale);
+                const user = await findByEmail('client@gmail.com');
+                this.sale.user = user.data;
+                
                 const response = await save(this.sale);
                 console.log(response.data);
             }
