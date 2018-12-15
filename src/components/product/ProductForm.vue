@@ -2,16 +2,16 @@
     <div id="product-form">
         <form v-on:submit.prevent="$emit('handleSubmitProduct', product)">
             <label for="input_name">Nome do produto: </label>
-            <input :value="product.name" id="input_name" required/>
+            <input v-model="product.name" id="input_name" required/>
 
             <label for="input_price">Preço</label>
-            <input :value="product.price" id="input_price" required/>
+            <input v-model="product.price" id="input_price" required/>
 
             <label for="input_producer">Fabricante</label>
-            <input :value="product.producer" id="input_producer" required/>
+            <input v-model="product.producer" id="input_producer" required/>
 
             <label for="input_amount">Quantidade</label>
-            <input :value="product.amount" id="input_amount" required/>
+            <input v-model="product.amount" id="input_amount" required/>
 
             <button>{{title}}</button>
         </form>

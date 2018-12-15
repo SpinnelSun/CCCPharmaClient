@@ -1,7 +1,7 @@
 <template id = "form-update">
     <div>
 
-        <form v-on:submit.prevent="handleSubmitProduct" class="register-datas">
+        <div class="register-datas">
             <label for="input_code">Codigo</label><br><br>
             <input v-model="product.code" id="input_code" required/> <br>
 
@@ -11,11 +11,9 @@
                     {{ category.name }}
                 </option>
             </select>
-
-            <button>Register</button>
-
-            <!-- <product-form :product=product title="Registrar" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form> -->
-        </form>
+            <product-form :product=product title="Registrar" v-on:handleSubmitProduct="handleSubmitProduct">
+            </product-form>
+        </div>
 
         {{product}}
         <span :class="{error: isError}" v-if="isError">
@@ -32,6 +30,7 @@
 
 <script>
 import { save } from '@/services/productService'
+import { get } from '@/services/categoryService';
 import ProductForm from '@/components/product/ProductForm'
 
 export default {
@@ -47,16 +46,24 @@ export default {
                 category: {},
                 code: ''
             },
+            categories: [],
             isError: false,
             isSucess: false
         }
+    },
+    async created(){
+        const response = await get();
+        this.categories = response.data;
     },
     components: {
         ProductForm
     },
     methods: {
-        handleSubmitProduct () {
-            console.log(this.product.code);
+        async handleSubmitProduct (product) {
+            const HTTP_STATUS_CREATED = 201;
+            const response = await save(product);
+            this.isError = response.status != HTTP_STATUS_CREATED;
+            this.isSucess = !this.isError; 
         }, 
     }
 }
