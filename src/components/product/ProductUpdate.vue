@@ -39,7 +39,7 @@
 
         methods: {
             async handleSubmitProduct (product) {
-                const HTTP_STATUS_CREATED = 201;
+                const HTTP_STATUS_CREATED = 200;
                 const response = await update(product);
                 console.log(response.status);
                 this.isError = response.status != HTTP_STATUS_CREATED;
