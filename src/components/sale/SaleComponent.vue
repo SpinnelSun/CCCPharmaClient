@@ -1,22 +1,21 @@
 <template>
-    <div id="sale-component">
-        <div id="sale-detale">
-            Pedido nº: {{sale.id}} <br/>
-            Total: {{sale.cost}} 
+    <div id="sale-record">
+        <div class="sale-details">
+            <span>Pedido Nº:</span> {{sale.id}} 131<br/>
+            <span>Total:</span> {{sale.cost}} R$ 50,00
         </div>
-            <ul>
-                <!--{{sale}}-->
-                <h3 id="product-list-header">
-                    <span id="item-header">Itens</span>
-                    <span id="quantity-header">Qtd</span>
-                    <span id="price-header">Preço</span>
-                </h3>
-                <li v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
-                    <span id="product-name">{{soldProduct.product.name}}</span>
-                    <span id="product-quantity">{{soldProduct.quantity}}</span>
-                    <span id="product-price">{{soldProduct.product.price}}</span>
-                </li>
-            </ul>
+        <div class="sale-itens">
+            <div class="list-header">
+                <div class="column-header">Itens</div>
+                <div class="column-header">Quantidade</div>
+                <div class="column-header">Preço</div>
+            </div>
+            <li v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
+                <span id="product-name">{{soldProduct.product.name}}</span>
+                <span id="product-quantity">{{soldProduct.quantity}}</span>
+                <span id="product-price">{{soldProduct.product.price}}</span>
+            </li>
+        </div>
     </div>
 </template>
 
@@ -38,46 +37,66 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
-#sale-component{
-    border: 0.1em solid #242B3A;
-    border-radius: 5px;
-    padding: 0.3em 0em; 
+#sale-record {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border: 0.3em solid #242B3A;
+        border-radius: 2em;
+
+        padding: 2em;
+        width: 50em;
+}
+
+.sale-details {
+    font-family: "Lato";
+    font-size: 1.2em;
+
     color: #242B3A;
+
+    margin-bottom: 1em;
 }
 
-#sale-detale{
-    margin-top: 5px;
-    margin-left: 10px;
+span {
+    font-family: "Raleway";
+    font-weight: bold;
+    font-size: 1.1em;
+
+    color: #242B3A;
+
+    margin-right: 0.2em;
 }
 
-#product-list-header{
-    display: grid;
-    grid-template-columns: 1fr min-content 1fr;
-    color: white;
-    background: #242B3A;
-    grid-row: 1;
-    margin: 5px;
+#sale-itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-li {
-    display: grid;
-    grid-template-columns: 1fr min-content 1fr;
-    border-bottom:  0.1em solid #242B3A;
+.list-header {
+    display: inline-grid;
+    justify-content: space-around;
+    grid-template-columns: 2fr 1fr 2fr;
+    border-radius: 1em 1em 0em 0em;
+    
+    align-content: center;
+    font-family: "Raleway";
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+        
+    background-color: #242B3A;
+    color: #FFFFFF;
+
+    width: 40em;
+    height: 3em;
 }
 
-#sale-detale {
-    text-align: left;
-}
-
-ul {
-    list-style: none;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 0.2%;
-    padding: 0px;
-    border: 0.1em solid #242B3A;
-}
 
 </style>
 
