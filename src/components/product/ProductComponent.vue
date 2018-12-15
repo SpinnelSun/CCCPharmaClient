@@ -5,7 +5,7 @@
 
           <div class="media-content">
                 <h3 id="product-name"> {{product.name}}  </h3> 
-<h2 id="product-price"> R$ {{product.price}} </h2>
+                <h2 id="product-price"> R$ {{product.price.toFixed(2)}} </h2>
                 <span :class="{available: product.available, unavailable: !product.available}">
                   <i class="fa fa-warning"></i>
                     <p>INDISPONÍVEL </p>
