@@ -2,6 +2,12 @@ import http from '@/config/axios';
 
 const BASE_PATH = '/sales'
 
+const save = (sale) => {
+    return http.get(`${BASE_PATH}`, sale)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
 const getAllSales = () => {
     return http.get(`${BASE_PATH}`)
                 .then(response => response)
@@ -16,5 +22,6 @@ const getSaleById = (id) => {
 
 export {
     getAllSales,
-    getSaleById
+    getSaleById,
+    save
 }

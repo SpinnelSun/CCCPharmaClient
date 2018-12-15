@@ -11,9 +11,7 @@
                 <div class="column-header">Preço</div>
             </div>
             <li id="list" v-for="soldProduct in sale.soldProducts" :key="soldProduct.id">
-                <span id="product-name">{{soldProduct.product.name}}</span>
-                <span id="product-quantity">{{soldProduct.quantity}}</span>
-                <span id="product-price">{{soldProduct.product.price}}</span>
+                <sold-product :soldProduct="soldProduct"></sold-product>
             </li>
         </div>
     </div>
@@ -21,6 +19,7 @@
 
 <script>
 import { getSaleById } from '@/services/saleService'
+import SoldProduct from '@/components/sale/soldProduct/SoldProduct'
 
 export default {
     name: 'SaleComponent',
@@ -32,6 +31,9 @@ export default {
     async created() {
         const response =  await getSaleById(this.$route.params.code);
         this.sale = response.data;
+    },
+    components: {
+        SoldProduct
     }
 }
 </script>

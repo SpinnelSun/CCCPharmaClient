@@ -10,7 +10,7 @@
     export default {
     name: 'SoldProduct',
     props: {
-      category: Object
+      soldProduct: Object
     }
 }
 </script>
