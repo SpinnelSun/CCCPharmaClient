@@ -34,7 +34,7 @@
     import { get } from '@/services/categoryService';
 
     export default {
-        name: 'ProductList',
+        name: 'ProductRegister',
 
         data() {
             return {
