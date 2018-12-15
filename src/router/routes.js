@@ -3,16 +3,13 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
-<<<<<<< HEAD
 import ProductList from '@/components/product/ProductList'
 import ProductUpdate from '@/components/product/ProductUpdate'
 import ProductSimpleList from '@/components/product/ProductSimpleList'
 import ProductRegister from '@/components/product/ProductRegister'
 
-=======
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
->>>>>>> 96d9937d69a8864977d4dd71eefae886e5987b1a
 
 Vue.use(Router)
 

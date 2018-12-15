@@ -31,35 +31,35 @@
 
 
 <script>
-    import { save } from '@/services/productService'
-    import ProductForm from '@/components/product/ProductForm'
+import { save } from '@/services/productService'
+import ProductForm from '@/components/product/ProductForm'
 
-    export default {
-        name: 'ProductList',
+export default {
+    name: 'ProductList',
 
-        data() {
-            return {
-                product : {
-                    name: '',
-                    price: '',
-                    amount: '',
-                    producer: '',
-                    category: {},
-                    code: ''
-                },
-                isError: false,
-                isSucess: false
-            }
-        },
-        components: {
-            ProductForm
-        },
-        methods: {
-            handleSubmitProduct () {
-                console.log(this.product.code);
-            }, 
+    data() {
+        return {
+            product : {
+                name: '',
+                price: '',
+                amount: '',
+                producer: '',
+                category: {},
+                code: ''
+            },
+            isError: false,
+            isSucess: false
         }
+    },
+    components: {
+        ProductForm
+    },
+    methods: {
+        handleSubmitProduct () {
+            console.log(this.product.code);
+        }, 
     }
+}
 
 </script>
 
