@@ -5,6 +5,7 @@ const API_URL = 'https://cccpharma-server.herokuapp.com';
 
 const http = axios.create({
     baseURL: API_URL,
+    timeout: 5000,
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
