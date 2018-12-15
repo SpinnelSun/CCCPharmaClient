@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <nav>
+        <nav class="shadowed">
             <component :is="layout"></component>
         </nav>
-        <main>
+        <main class="shadowed">
             <router-view/>
         </main> 
     </div>
@@ -55,7 +55,7 @@
 
         background-color: #242B3A;
         border-radius: 2em;
-        
+
         margin: 2em 0em 2em 2em;
     }
 
@@ -67,10 +67,16 @@
         justify-content: center;
         align-items: center;
 
-        background-color: #FFFFFF;
+        background-color: #FCFCFC;
         border: 0.1em solid #242B3A;
         border-radius: 2em;
 
         margin: 2em 2em;
+    }
+
+    .shadowed{
+    -webkit-box-shadow: 0 2em 5em #777777;
+       -moz-box-shadow: 0 2em 5em #777777;
+            box-shadow: 0 2em 5em #777777;
     }
 </style>
