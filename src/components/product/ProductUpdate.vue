@@ -1,13 +1,13 @@
 <template id = "form-update">
     <div>
-        <product-form title="Atualizar" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
+        <product-form title="Atualizar Produto" :product=product :key="code" v-on:handleSubmitProduct="handleSubmitProduct"> </product-form>
         <span :class="{error: isError}" v-if="isError">
             <i class="fa fa-warning"></i>
-            Houve um erro na atualização de dados. Reveja suas informações.
+            Houve um erro na atualização de dados. Reveja suas informações!
         </span>
         <span :class="{sucess: isSucess}" v-if="isSucess">
             <i class="fa fa-check"></i>
-            Produto atualizado com sucesso.
+            Produto atualizado com sucesso!
         </span>
     </div>
 </template>
