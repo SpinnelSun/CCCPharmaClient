@@ -36,7 +36,7 @@ export default {
         padding: 1em 2em;
         margin: 0.5em;
         width: 15em;
-        height: 10em;
+        height: 12em;
     }
 
     .box-view:hover {
