@@ -15,11 +15,12 @@
             </div>
         </div>
         <div class="list-footer"></div>
+        <button @click="deleteSale">Excluir Venda</button>
     </div>
 </template>
 
 <script>
-    import { getSaleById } from '@/services/saleService'
+    import { getSaleById, deleteSaleById } from '@/services/saleService'
     import SoldProduct from '@/components/sale/soldProduct/SoldProduct'
 
     export default {
@@ -35,6 +36,15 @@
         },
         components: {
             SoldProduct
+        },
+        methods: {
+            async deleteSale() {
+                const response = await deleteSaleById(this.$route.params.code);
+                console.log(response.data);
+
+                this.$router.push('/sales');
+                alert("A exclusão da venda foi concluída!");
+            }
         }
     }
 </script>
@@ -108,6 +118,29 @@
 
         width: 44.3em;
         height: 1em;
+    }
+
+    button {
+        border: 0.1em solid #242B3A;
+        border-radius: 0.5em;
+
+        text-decoration-line: none;
+        font-family: "Raleway";
+        font-weight: bold;
+        font-size: 1.1em;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+        
+        margin-top: 1em;
+        padding: 0.5em 2em;
+    }
+
+    button:hover {
+        background-color: #242B3A;
+        color: #FFFFFF;
+
+        transition: .2s ease-in-out;
     }
 </style>
 
