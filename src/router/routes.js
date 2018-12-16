@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
+
 import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
 import SaleRegister from '@/components/sale/SaleRegister'
+
 import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
 import ProductUpdate from '@/components/product/admin/ProductUpdate'
 import ProductList from '@/components/product/client/ProductList'
@@ -12,6 +15,7 @@ import ProductUnavailableList from '@/components/product/client/ProductUnavailab
 import ProductRegister from '@/components/product/admin/ProductRegister'
 
 import CategoryList from '@/components/category/CategoryList'
+
 import NotificationList from '@/components/notification/NotificationList'
 
 Vue.use(Router)
@@ -47,7 +51,7 @@ const router =  new Router({
       }
     },
     {
-      path: '/saleRegister',
+      path: '/sale-register',
       name: 'SaleRegister',
       component: SaleRegister,
       meta: {
@@ -74,7 +78,7 @@ const router =  new Router({
       }
     },
     {
-      path: '/products-simple',
+      path: '/products-client',
       name: 'ProductList',
       component: ProductList
     },

@@ -2,7 +2,7 @@
     <nav-bar>
         <header id="logo">CCCPharma</header>
         
-        <router-link class="nav-link" to="/product-list">Home</router-link>
+        <router-link class="nav-link" to="/notifications">Home</router-link>
         <router-link class="nav-link" to="/products">Produtos</router-link>
         <router-link class="nav-link" to="/categories">Categorias</router-link>
         <router-link class="nav-link" to="/sales">Vendas</router-link>

@@ -1,6 +1,6 @@
 <template>
     <div id="sale-list-container">
-        <router-link id="register-sale-btn" :to="`/saleRegister`">Cadastrar Nova Venda</router-link>
+        <router-link id="register-sale-btn" :to="`/sale-register`">Cadastrar Nova Venda</router-link>
         <div class="list-header">
             <div class="column-header">ID</div>
             <div class="column-header">Total</div>
