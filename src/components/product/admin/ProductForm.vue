@@ -81,6 +81,9 @@
     }
 
     button {
+        align-self: center;
+        justify-content: center;
+
         border: 0.08em solid #FFFFFF;
         border-radius: 0.75em;
 
