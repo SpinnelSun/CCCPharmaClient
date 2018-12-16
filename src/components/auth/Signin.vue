@@ -1,12 +1,6 @@
 <template>
     <div>
-        <user-form title="Entrar" v-on:handleSubmit="handleSubmit">
-        </user-form>
-        <span :class="{message, error: isError}" v-if="isError">
-            <i class="fa fa-warning">
-            </i>
-            Houve um erro na sua requisição
-        </span>
+        <user-form title="Entrar" v-on:handleSubmit="handleSubmit"></user-form>
     </div>
 </template>
 
@@ -27,7 +21,9 @@ export default {
             const response = await signin(user);
             this.isError = response.status != HTTP_STATUS_OK;
 
-            if(!this.isError){
+            if (this.isError) {
+                alert("Login e/ou senha incorretos!");
+            } else {
                 const role = response.data.roles[0].name;
                 let home = '/';
                 if(role == "ROLE_ADMIN"){
