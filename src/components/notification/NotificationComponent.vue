@@ -1,37 +1,45 @@
 <template>
-    <div id="notification">
-        <strong id="notification-name">{{ notification.name }}</strong>
+    <div class="notification">
+        <span class="notification-text">{{ notification.name }}</span>
     </div>
 </template>
+
 <script>
-export default {
-    name: 'NotificationComponent',
-    props: {
-        notification: Object
+    export default {
+        name: 'NotificationComponent',
+        props: {
+            notification: Object
+        }
     }
-}
 </script>
+
 <style scoped>
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-    #notification {
-        margin-right: auto;
-        margin-left: auto;
+    .notification {
         display: flex;
-        overflow: hidden;
         flex-flow: row wrap;
-        max-width: 600px;
-        background-color: #fff;
+        
         border-left: 5px solid #242B3A;
-        border-radius: 4px;
-        box-shadow: 0 5px 25px 0 rgba(0,0,0,.15);
+        border-radius: 0.5em;
+        
+        overflow: hidden;
+        max-width: 600px;
 
+        background-color: #FFFFFF;
+        
+        box-shadow: 0 5px 25px 0 rgba(0,0,0,.15);
+        margin: 1em auto;
     }
 
-    #notification-name {
-        padding: 18px;
-        width: calc(100% - 50px);
-        font: 12px Arial, sans-serif;
+    .notification-text {
+        font-family: "Raleway";
+        font-size: 0.9em;
+
         text-shadow: rgba(0,0,0,.01) 0 0 1px;
-        color: #666;
+        color: #666666;
+
+        padding: 1em;
+        width: 80%;
     }
 </style>
