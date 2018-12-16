@@ -1,15 +1,6 @@
 <template>
     <div>
-        <user-form title="Registrar" v-on:handleSubmit="handleSubmit">
-        </user-form>
-        <span :class="{error: isError}" v-if="isError">
-            <i class="fa fa-warning"></i>
-            Houve um erro no cadastro de dados. Confira suas informações!
-        </span>
-        <span :class="{sucess: isSucess}" v-if="isSucess">
-            <i class="fa fa-check"></i>
-            Usuário cadastrado com sucesso!
-        </span>
+        <user-form title="Registrar" v-on:handleSubmit="handleSubmit"></user-form>
     </div>
 </template>
 
@@ -29,8 +20,15 @@
             async handleSubmit (user) {
                 const HTTP_STATUS_CREATED = 201;
                 const response = await signup(user);
-                this.isError = response.status != HTTP_STATUS_CREATED;
+                this.isError = (response.status != HTTP_STATUS_CREATED);
                 this.isSucess = !this.isError;
+
+                if (this.isError) {
+                    alert("Impossível realizar seu cadastro. Verifique os dados informados!");
+                } else {
+                    alert("Cadastro realizado com sucesso!");
+                    this.$router.push('/');
+                }
            },
         },
         components: {

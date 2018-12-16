@@ -15,7 +15,7 @@
         </div>
 
         <div class="buttons-container">
-            <button @click="addShoppingCart">Adicionar Produto</button>
+            <button @click="addToShoppingCart">Adicionar Produto</button>
             <button @click="registerSale">Registrar Venda</button>
         </div>
     </div>
@@ -44,9 +44,11 @@
             this.products = response.data.content;
         },
         methods:{
-            addShoppingCart() {
+            addToShoppingCart() {
                 this.sale.soldProducts.push(this.soldProduct);
                 this.soldProduct = {};
+
+                alert("Produto adicionado à venda!");
             },
             async registerSale() {
                 const user = await findByEmail('client@gmail.com');
@@ -54,6 +56,9 @@
 
                 const response = await save(this.sale);
                 console.log(response.data);
+
+                alert("Venda registrada com sucesso!");
+                this.$router.push('/sales');
             }
         }
     }
