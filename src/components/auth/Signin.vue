@@ -29,7 +29,7 @@ export default {
 
             if(!this.isError){
                 const role = response.data.roles[0].name;
-                let home = '/products';
+                let home = '/products-client';
                 if(role == "ROLE_ADMIN"){
                     home = '/notifications'
                 }

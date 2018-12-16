@@ -18,10 +18,11 @@
         name: 'App',
         computed: {
             layout() {
-                if (this.$route.meta.isAdmin) {
-                    return `admin-nav-bar`;
-                } else if (this.$route.meta.isClient) {
+                if (this.$route.meta.isClient && localStorage.getItem('authority') == "ROLE_CLIENT") {
                     return `client-nav-bar`;
+                }
+                else if (this.$route.meta.isAdmin) {
+                    return `admin-nav-bar`;
                 } else {
                     return `common-nav-bar`;
                 }
