@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
-
+import SaleComponent from '@/components/sale/SaleComponent'
+import SaleList from '@/components/sale/SaleList'
+import SaleRegister from '@/components/sale/SaleRegister'
 import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
 import ProductUpdate from '@/components/product/admin/ProductUpdate'
 import ProductList from '@/components/product/client/ProductList'
@@ -22,14 +24,36 @@ const router =  new Router({
       component: Signin
     },
     {
-      path: '/signin',
-      name: 'Signin',
-      component: Signin
-    },
-    {
       path: '/signup',
       name: 'Signup',
       component: UserSignup
+    },
+    {
+      path: '/sales',
+      name: 'SaleList',
+      component: SaleList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
+    },
+    {
+      path: '/sales/:code',
+      name: 'SaleComponent',
+      component: SaleComponent,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
+    },
+    {
+      path: '/saleRegister',
+      name: 'SaleRegister',
+      component: SaleRegister,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true
+      }
     },
     {
       path: '/products',
