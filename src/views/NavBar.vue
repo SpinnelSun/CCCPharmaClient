@@ -6,7 +6,6 @@
 
 <script>
     import { logout } from '@/services/authService'
-
     export default {
         name: 'NavBar'
     }
@@ -18,14 +17,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: left;
-
         padding: 2em 1.5em;
     }
-
     a { 
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-
         text-decoration-line: none;
         color: #FFFFFF;
 	    

@@ -1,4 +1,4 @@
-import http from '@/api/axios';
+import http from '@/config/axios';
 
 const BASE_PATH = '/categories';
 
