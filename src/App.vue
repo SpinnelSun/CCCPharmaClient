@@ -4,12 +4,15 @@
             <component :is="layout"></component>
         </nav>
         <main class="shadowed">
-            <router-view/>
+            <v-bar wrapper="wrapper">
+                <router-view/>
+            </v-bar>
         </main> 
     </div>
 </template>
 
 <script>
+    import VBar from 'v-bar'
     import AdminNavBar from '@/views/AdminNavBar'
     import ClientNavBar from '@/views/ClientNavBar'
     import CommonNavBar from '@/views/CommonNavBar'
@@ -28,7 +31,8 @@
                 }
             }
         },
-        components:{
+        components: {
+            VBar,
             AdminNavBar,
             ClientNavBar,
             CommonNavBar
@@ -64,20 +68,28 @@
         grid-row: 1 / 7;
         grid-column: 2 / 5;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         background-color: #FCFCFC;
         border: 0.1em solid #242B3A;
         border-radius: 2em;
 
+        padding: 1.5em 0.5em 1.5em 1em;
         margin: 2em 2em;
     }
 
     .shadowed{
-    -webkit-box-shadow: 0 2em 5em #777777;
-       -moz-box-shadow: 0 2em 5em #777777;
-            box-shadow: 0 2em 5em #777777;
+        -webkit-box-shadow: 0 2em 5em #777777;
+        -moz-box-shadow: 0 2em 5em #777777;
+        box-shadow: 0 2em 5em #777777;
+    }
+
+    .wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .bar--wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
