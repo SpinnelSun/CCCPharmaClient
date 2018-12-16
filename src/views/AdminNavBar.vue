@@ -23,7 +23,7 @@
         methods: {
             quit() {
                 logout();
-                this.$router.push('/');
+                this.$router.push('/signin');
           }
         }
     }

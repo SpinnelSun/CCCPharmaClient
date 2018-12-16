@@ -29,12 +29,11 @@ export default {
 
             if(!this.isError){
                 const role = response.data.roles[0].name;
-                let home = '/products-client';
+                let home = '/';
                 if(role == "ROLE_ADMIN"){
-                    // if you does not set this timeout, error in acess token
                     home = '/notifications'
                 }
-                this.$router.replace(this.$route.query.redirect || home);
+                this.$router.push(home);
             }
         }
     },

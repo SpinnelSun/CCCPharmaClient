@@ -2,7 +2,7 @@
     <nav-bar>
         <header id="logo">CCCPharma</header>
 
-        <router-link class="nav-link" to="/products-client">Home</router-link>
+        <router-link class="nav-link" to="/">Home</router-link>
 
         <button @click="quit">Logout</button>
     </nav-bar>
@@ -19,7 +19,7 @@
         methods: {
             quit() {
                 logout();
-                this.$router.push('/');
+                this.$router.push('/signin');
             }
         }
     }

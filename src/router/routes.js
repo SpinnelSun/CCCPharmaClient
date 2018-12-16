@@ -24,6 +24,14 @@ const router =  new Router({
   routes: [
     {
       path: '/',
+      name: 'ProductList',
+      component: ProductList,
+      meta: {
+        isClient: true
+      }
+    },
+    {
+      path: '/signin',
       name: 'Signin',
       component: Signin
     },
@@ -78,14 +86,6 @@ const router =  new Router({
       }
     },
     {
-      path: '/products-client',
-      name: 'ProductList',
-      component: ProductList,
-      meta: {
-        isClient: true
-      }
-    },
-    {
       path: '/products-register',
       name: 'ProductRegister',
       component: ProductRegister,
@@ -131,7 +131,7 @@ router.beforeEach((to, from, next) => {
   }else{
   if(to.matched.some(record => record.meta.requiresAuth)){
     if(!localStorage.getItem('token')) {
-      next({ path: '/' })
+      next({ path: '/signin' })
     }else{
       const authorityUser = localStorage.getItem('authority');
       if(to.matched.some(record => record.meta.isAdmin)){

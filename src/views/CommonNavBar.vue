@@ -2,8 +2,8 @@
     <nav-bar>
         <header id="logo">CCCPharma</header>
         
-        <router-link class="nav-link" to="/products-client">Home</router-link>
-        <router-link class="nav-link" to="/">Login</router-link>
+        <router-link class="nav-link" to="/">Home</router-link>
+        <router-link class="nav-link" to="/signin">Login</router-link>
         <router-link class="nav-link" to="/signup">Cadastre-se</router-link>
       </nav-bar>
 </template>
