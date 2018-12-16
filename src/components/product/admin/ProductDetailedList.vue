@@ -1,19 +1,17 @@
 <template>
-    <div>
-        <div class="products-grid">
-            <div>
-                <span> Listar por: </span>
-                <select @change="sort" class="form-control" v-model="sortingAttribute">
-                    <option value="code">Código</option>
-                    <option value="name">Nome</option>
-                    <option value="price">Preço</option>
-                    <option value="producer">Fabricante</option>
-                    <option value="category">Categoria</option>
-                </select>
-            </div>
-            <div class="product-item" v-for="product in products" :key="product.code"> 
-                <product-detailed-item :product=product></product-detailed-item> 
-            </div>
+    <div class="products-grid">
+        <div class="product-item">
+            <span> Listar por: </span>
+            <select @change="sort" class="form-control" v-model="sortingAttribute">
+                <option value="code">Código</option>
+                <option value="name">Nome</option>
+                <option value="price">Preço</option>
+                <option value="producer">Fabricante</option>
+                <option value="category">Categoria</option>
+            </select>
+        </div>
+        <div class="product-item" v-for="product in products" :key="product.code"> 
+            <product-detailed-item :product=product></product-detailed-item> 
         </div>
     </div>
 </template>
@@ -49,8 +47,8 @@
 <style>
     .products-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
         justify-content: space-around;
         
         background-color:#FFFFFF;

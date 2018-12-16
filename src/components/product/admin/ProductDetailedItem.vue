@@ -37,7 +37,7 @@
         padding: 1em 2em;
         margin: 0.5em;
         width: 15em;
-        height: 15em;
+        height: 60%;
     }
 
     .box-view:hover {

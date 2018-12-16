@@ -1,13 +1,11 @@
 <template>
     <div id="app">
-        <nav class="shadowed">
-            <component :is="layout"></component>
-        </nav>
-        <main class="shadowed">
-            <v-bar wrapper="wrapper">
+            <nav class="shadowed">
+                <component :is="layout"></component>
+            </nav>
+            <main class="shadowed">
                 <router-view/>
-            </v-bar>
-        </main> 
+            </main> 
     </div>
 </template>
 
@@ -46,7 +44,7 @@
     #app {
         display: grid;
         grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
-        grid-template-rows: repeat(5, 1fr); 
+        grid-template-rows: repeat(auto, minmax(1fr, 25vh)); 
 
         background-color: #EEEEEE;
         font-family: 'Lato';
@@ -56,7 +54,7 @@
 
     nav {
         grid-column: 1;
-        grid-row: 1 / 7;
+        grid-row: 1 / 21;
 
         background-color: #242B3A;
         border-radius: 2em;
@@ -65,7 +63,7 @@
     }
 
     main {
-        grid-row: 1 / 7;
+        grid-row: 1 / 21;
         grid-column: 2 / 5;
 
         background-color: #FCFCFC;

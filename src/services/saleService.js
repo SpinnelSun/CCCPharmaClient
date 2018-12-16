@@ -20,8 +20,15 @@ const getSaleById = (id) => {
                 .catch(error => error.response);
 }
 
+const deleteSaleById = (id) => {
+    return http.delete(`${BASE_PATH}/${id}`)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
 export {
+    save,
     getAllSales,
     getSaleById,
-    save
+    deleteSaleById
 }
