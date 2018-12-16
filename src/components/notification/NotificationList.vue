@@ -38,7 +38,7 @@
         font-size: 2em;
 
         color: #242B3A;
-
+        
         margin-bottom: 1em;
     }
 </style>

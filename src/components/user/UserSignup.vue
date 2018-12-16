@@ -21,10 +21,8 @@
                 const HTTP_STATUS_CREATED = 201;
                 const response = await signup(user);
                 this.isError = (response.status != HTTP_STATUS_CREATED);
+                this.isSucess = !this.isError;
 
-                this.alertSignupSituation();
-            }, 
-            alertSignupSituation() {
                 if (this.isError) {
                     alert("Impossível realizar seu cadastro. Verifique os dados informados!");
                 } else {

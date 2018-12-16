@@ -35,10 +35,10 @@
     .notification-text {
         font-family: "Raleway";
         font-size: 0.9em;
-
+        
         text-shadow: rgba(0,0,0,.01) 0 0 1px;
         color: #666666;
-
+        
         padding: 1em;
         width: 80%;
     }

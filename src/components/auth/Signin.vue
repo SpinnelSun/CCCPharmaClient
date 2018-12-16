@@ -21,9 +21,6 @@ export default {
             const response = await signin(user);
             this.isError = response.status != HTTP_STATUS_OK;
 
-            this.alertSigninSituation();
-        }, 
-        alertSigninSituation() {
             if (this.isError) {
                 alert("Login e/ou senha incorretos!");
             } else {
