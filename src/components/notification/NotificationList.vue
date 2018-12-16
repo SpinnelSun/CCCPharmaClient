@@ -21,6 +21,7 @@ export default {
     },
     async created() {
         const response = await get();
+        console.log(response);
         this.notifications = response.data;
     },
     components: {

@@ -32,10 +32,8 @@ export default {
                 let home = '/products-client';
                 if(role == "ROLE_ADMIN"){
                     // if you does not set this timeout, error in acess token
-                    setTimeout(2000);
                     home = '/notifications'
                 }
-
                 this.$router.replace(this.$route.query.redirect || home);
             }
         }
