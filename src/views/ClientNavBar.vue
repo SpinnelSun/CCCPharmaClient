@@ -19,7 +19,7 @@
         methods: {
             quit() {
                 logout();
-                this.$router.push('signin');
+                this.$router.push('/');
             }
         }
     }
