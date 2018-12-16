@@ -4,19 +4,19 @@ import Router from 'vue-router'
 import Signin from '@/components/auth/Signin'
 import UserSignup from '@/components/user/UserSignup'
 
-import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
 import SaleRegister from '@/components/sale/SaleRegister'
-
-import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
-import ProductUpdate from '@/components/product/admin/ProductUpdate'
-import ProductList from '@/components/product/client/ProductList'
-import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
-import ProductRegister from '@/components/product/admin/ProductRegister'
+import SaleComponent from '@/components/sale/SaleComponent'
 
 import CategoryList from '@/components/category/CategoryList'
 
 import NotificationList from '@/components/notification/NotificationList'
+
+import ProductList from '@/components/product/client/ProductList'
+import ProductUpdate from '@/components/product/admin/ProductUpdate'
+import ProductRegister from '@/components/product/admin/ProductRegister'
+import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
+import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
 
 Vue.use(Router)
 
@@ -90,7 +90,8 @@ const router =  new Router({
         requiresAuth: true,
         isAdmin: true,
       }
-    },{
+    },
+    {
       path: '/categories',
       name: 'CategoryList',
       component: CategoryList,
@@ -98,7 +99,8 @@ const router =  new Router({
         requiresAuth: true,
         isAdmin: true
       }
-    },{
+    },
+    {
       path: '/notifications',
       name: 'Notification',
       component: NotificationList,
@@ -106,7 +108,8 @@ const router =  new Router({
         requiresAuth: true,
         isAdmin: true
       }
-    },{
+    },
+    {
       path:'/products-unavailable',
       name: ProductUnavailableList,
       component: ProductUnavailableList,
@@ -118,7 +121,6 @@ const router =  new Router({
     }
   ]
 })
-
 
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)){
