@@ -132,8 +132,10 @@ router.beforeEach((to, from, next) => {
     }else{
       const authorityUser = localStorage.getItem('authority');
       if(to.matched.some(record => record.meta.isAdmin)){
-        if(authorityUser == 'ROLE_ADMIN') {
+        if(authorityUser === 'ROLE_ADMIN') {
           next()
+        } else if(authorityUser == 'ROLE_CLIENT'){
+          next(false);
         } else {
           next({ path: '/error' })
         }
