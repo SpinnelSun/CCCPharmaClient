@@ -8,6 +8,13 @@ const getProducts = () => {
                 .catch(error => error.response);
 }
 
+const getProductsSorted = (sortingAttribute) => {
+    return http.get(`${BASE_PATH}?sort=${sortingAttribute}`)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
+
 const update = (product) => {
     return http.put(`${BASE_PATH}`, product)
                 .then(response => response)
@@ -29,6 +36,7 @@ const findByCode = (code) => {
 
 export {
     getProducts,
+    getProductsSorted,
     update,
     save,
     findByCode

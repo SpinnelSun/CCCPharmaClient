@@ -5,10 +5,12 @@ import UserSignup from '@/components/user/UserSignup'
 import SaleComponent from '@/components/sale/SaleComponent'
 import SaleList from '@/components/sale/SaleList'
 import SaleRegister from '@/components/sale/SaleRegister'
-import ProductList from '@/components/product/ProductList'
-import ProductUpdate from '@/components/product/ProductUpdate'
-import ProductSimpleList from '@/components/product/ProductSimpleList'
-import ProductRegister from '@/components/product/ProductRegister'
+import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
+import ProductUpdate from '@/components/product/admin/ProductUpdate'
+import ProductList from '@/components/product/client/ProductList'
+import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
+import ProductRegister from '@/components/product/admin/ProductRegister'
+
 import CategoryList from '@/components/category/CategoryList'
 import NotificationList from '@/components/notification/NotificationList'
 
@@ -55,23 +57,35 @@ const router =  new Router({
     },
     {
       path: '/products',
-      name: 'ProductList',
-      component: ProductList
+      name: 'ProductDetailedList',
+      component: ProductDetailedList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },
     {
       path: '/products/:code',
       name: 'ProductUpdate',
-      component: ProductUpdate
+      component: ProductUpdate,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },
     {
       path: '/products-simple',
-      name: 'ProductSimpleList',
-      component: ProductSimpleList
+      name: 'ProductList',
+      component: ProductList
     },
     {
       path: '/products-register',
       name: 'ProductRegister',
-      component: ProductRegister
+      component: ProductRegister,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+      }
     },{
       path: '/categories',
       name: 'CategoryList',
@@ -87,6 +101,15 @@ const router =  new Router({
       meta: {
         requiresAuth: true,
         isAdmin: true
+      }
+    },{
+      path:'/products-unavailable',
+      name: ProductUnavailableList,
+      component: ProductUnavailableList,
+      meta: {
+        requiresAuth: true,
+        isAdmin: true,
+        isClient: true
       }
     }
   ]

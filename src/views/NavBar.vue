@@ -3,24 +3,28 @@
         <slot></slot>
     </div>
 </template>
+
 <script>
-import { logout } from '@/services/authService'
-export default {
-  name: 'NavBar'
-}
+    import { logout } from '@/services/authService'
+    export default {
+        name: 'NavBar'
+    }
 </script>
-<style scoped>
+
+<style>
     #layout{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: left;
+        padding: 2em 1.5em;
     }
-    a {
+    a { 
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        text-decoration-line: none;
         color: #FFFFFF;
-        -webkit-backface-visibility:hidden;
-        backface-visibility:hidden;
-        transition:0.5s color ease;
-	    text-decoration:none;
+	    
+        transition: 0.5s color ease;
     }
 </style>

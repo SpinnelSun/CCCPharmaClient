@@ -1,74 +1,82 @@
 <template>
-  <div id="app">
-    <nav>
-      <component :is="layout">
-      </component>
-    </nav>
-    <main>
-      <router-view/>
-    </main> 
-  </div>
+    <div id="app">
+        <nav class="shadowed">
+            <component :is="layout"></component>
+        </nav>
+        <main class="shadowed">
+            <router-view/>
+        </main> 
+    </div>
 </template>
-<script>
-import AdminNavBar from '@/views/AdminNavBar'
-import ClientNavBar from '@/views/ClientNavBar'
-import CommonNavBar from '@/views/CommonNavBar'
 
-export default {
-  name: 'App',
-  computed: {
-    layout() {
-      if(this.$route.meta.isAdmin){
-        return `admin-nav-bar`;
-      }else if(this.$route.meta.isClient){
-        return `client-nav-bar`;
-      }else{
-        return `common-nav-bar`;
-      }
+<script>
+    import AdminNavBar from '@/views/AdminNavBar'
+    import ClientNavBar from '@/views/ClientNavBar'
+    import CommonNavBar from '@/views/CommonNavBar'
+
+    export default {
+        name: 'App',
+        computed: {
+            layout() {
+                if (this.$route.meta.isAdmin) {
+                    return `admin-nav-bar`;
+                } else if (this.$route.meta.isClient) {
+                    return `client-nav-bar`;
+                } else {
+                    return `common-nav-bar`;
+                }
+            }
+        },
+        components:{
+            AdminNavBar,
+            ClientNavBar,
+            CommonNavBar
+        }
     }
-  },
-  components:{
-    AdminNavBar,
-    ClientNavBar,
-    CommonNavBar
-  }
-}
 </script>
 
 <style>
- @import url("https://fonts.googleapis.com/css?family=Lato");
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-#app{
-  font-family: 'Lato';
-  height: 100%;
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-}
-nav {
-  grid-column: 1;
-  grid-row: 1 / 7;
-  font-size: 1.5em;
-  background-color: #242B3A;
-}
-main {
-    grid-row: 2 / 7;
-    grid-column: 2 / 5; 
-}
+    #app {
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
+        grid-template-rows: repeat(5, 1fr); 
 
-.message {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 3px 3px 3px 3px;
-}
+        background-color: #EEEEEE;
+        font-family: 'Lato';
 
-.error {
-  color: #D8000C;
-  background-color: #FFBABA;
-}
+        height: 100%;
+    }
 
-.sucess {
-  color: #270;
-  background-color: #DFF2BF;
-}
+    nav {
+        grid-column: 1;
+        grid-row: 1 / 7;
+
+        background-color: #242B3A;
+        border-radius: 2em;
+
+        margin: 2em 0em 2em 2em;
+    }
+
+    main {
+        grid-row: 1 / 7;
+        grid-column: 2 / 5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #FCFCFC;
+        border: 0.1em solid #242B3A;
+        border-radius: 2em;
+
+        margin: 2em 2em;
+    }
+
+    .shadowed{
+    -webkit-box-shadow: 0 2em 5em #777777;
+       -moz-box-shadow: 0 2em 5em #777777;
+            box-shadow: 0 2em 5em #777777;
+    }
 </style>
