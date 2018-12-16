@@ -27,11 +27,11 @@
         },
         methods: {
             async handleSubmit (user) {
-            const HTTP_STATUS_CREATED = 201;
-            const response = await signup(user);
-            this.isError = response.status != HTTP_STATUS_CREATED;
-            this.isSucess = !this.isError;
-            },
+                const HTTP_STATUS_CREATED = 201;
+                const response = await signup(user);
+                this.isError = response.status != HTTP_STATUS_CREATED;
+                this.isSucess = !this.isError;
+           },
         },
         components: {
             UserForm
