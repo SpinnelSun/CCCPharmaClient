@@ -128,14 +128,14 @@ const router =  new Router({
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)){
     if(!localStorage.getItem('token')) {
-      next({ path: '/signin' })
+      next({ path: '/' })
     }else{
       const authorityUser = localStorage.getItem('authority');
       if(to.matched.some(record => record.meta.isAdmin)){
         if(authorityUser == 'ROLE_ADMIN') {
           next()
         } else {
-          next({ path: '/baba' })
+          next({ path: '/error' })
         }
       }
     }
