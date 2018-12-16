@@ -55,13 +55,14 @@
                 const response = await save(product);
                 console.log(response);
                 this.isError = response.status != HTTP_STATUS_CREATED;
-                this.isSucess = !this.isError; 
+                
                 this.alertRegisterSituation();
             }, 
             alertRegisterSituation() {
                 if (this.isError) {
                     alert("Impossível registrar o produto. Informações inválidas!");
-                } else if (this.isSucess) {
+                } else  {
+                    this.$router.push('/products');
                     alert("Produto registrado com sucesso!");
                 }
             }

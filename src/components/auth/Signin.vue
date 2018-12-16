@@ -26,9 +26,11 @@ export default {
             } else {
                 const role = response.data.roles[0].name;
                 let home = '/';
-                if(role == "ROLE_ADMIN"){
+                
+                if (role == "ROLE_ADMIN") {
                     home = '/notifications'
                 }
+
                 this.$router.push(home);
             }
         }

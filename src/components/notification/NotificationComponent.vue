@@ -15,6 +15,7 @@
 
 <style scoped>
     @import url("https://fonts.googleapis.com/css?family=Lato");
+
     .notification {
         display: flex;
         flex-flow: row wrap;
@@ -24,11 +25,13 @@
         
         overflow: hidden;
         max-width: 600px;
+
         background-color: #FFFFFF;
         
         box-shadow: 0 5px 25px 0 rgba(0,0,0,.15);
         margin: 1em auto;
     }
+
     .notification-text {
         font-family: "Raleway";
         font-size: 0.9em;

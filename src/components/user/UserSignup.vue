@@ -29,7 +29,7 @@
                     alert("Cadastro realizado com sucesso!");
                     this.$router.push('/');
                 }
-           },
+            }
         },
         components: {
             UserForm

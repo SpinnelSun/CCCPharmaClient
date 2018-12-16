@@ -12,6 +12,7 @@
 <script>
     import { get } from '@/services/notificationService';
     import NotificationComponent from '@/components/notification/NotificationComponent';
+
     export default {
         name: 'NotificationList',
         data () {
