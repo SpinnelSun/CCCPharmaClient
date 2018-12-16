@@ -126,6 +126,9 @@ const router =  new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  if(!to.matched.some(record => record)){
+    next(false);
+  }else{
   if(to.matched.some(record => record.meta.requiresAuth)){
     if(!localStorage.getItem('token')) {
       next({ path: '/' })
@@ -144,6 +147,7 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
+}
 })
 
 export default router;
