@@ -3,8 +3,9 @@
         <header id="logo">CCCPharma</header>
         
         <router-link class="nav-link" to="/notifications">Home</router-link>
-        <router-link class="nav-link" to="/products">Produtos</router-link>
-        <router-link class="nav-link" to="/categories">Categorias</router-link>
+        <router-link class="nav-link" to="/products">Listar Produtos</router-link>
+        <router-link class="nav-link" to="/products-register">Cadastrar Produtos</router-link>
+        <router-link class="nav-link" to="/categories">Editar Categorias</router-link>
         <router-link class="nav-link" to="/sales">Vendas</router-link>
         
         <button @click="quit">Logout</button>
