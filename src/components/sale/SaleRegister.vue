@@ -18,10 +18,24 @@
             <button @click="addToShoppingCart">Adicionar Produto</button>
             <button @click="registerSale">Registrar Venda</button>
         </div>
+
+        <div id="sold-products-list">
+            <div class="list-header">
+                <div class="column-header">Nome</div>
+                <div class="column-header">Quantidade</div>
+                <div class="column-header">Preço</div>
+            </div>
+            <div class="list-itens">
+                <sold-product v-for="soldProduct in sale.soldProducts" :key="soldProduct.product.code" v-bind:soldProduct="soldProduct"></sold-product>
+            </div>
+        <div class="list-footer">""</div>
+        </div>
+
     </div>
 </template>
 
 <script>
+    import SoldProduct from '@/components/sale/soldProduct/SoldProduct'
     import { getProducts } from '@/services/productService'
     import { save } from '@/services/saleService'
     import { findByEmail } from '@/services/userService'
@@ -42,7 +56,7 @@
         async created() {
             const response = await getProducts();
             const content = response.data.content
-            
+
             this.products = content.filter((product) => product.available);
         },
         methods:{
@@ -62,6 +76,9 @@
                 alert("Venda registrada com sucesso!");
                 this.$router.push('/sales');
             }
+        },
+        components:{
+            SoldProduct
         }
     }
 </script>
@@ -153,5 +170,42 @@
         color: #FFFFFF;
 
         transition: .2s ease-in-out;
+    }
+
+    #sold-products-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-header {
+        display: inline-grid;
+        justify-content: space-around;
+        grid-template-columns: repeat(3, 1fr);
+
+        border-radius: 1em 1em 0em 0em;
+        align-content: center;
+
+        font-family: "Raleway";
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        
+        background-color: #242B3A;
+        color: #FFFFFF;
+
+        width: 37em;
+        height: 3em;
+    }
+
+    .list-footer {
+        display: inline-grid;
+        justify-content: center;
+        
+        border-radius: 0em 0em 1em 1em;
+
+        background-color: #242B3A;
+
+        width: 44em;
     }
 </style>
