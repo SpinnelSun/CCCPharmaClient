@@ -2,7 +2,7 @@
     <div class="box-view">
         <span class="product-name"> {{product.name}} </span> 
         <span class="product-producer"> {{product.producer}} </span>
-        <span class="product-price"> R$ {{product.price.toFixed(2)}} </span>
+        <span class="product-price"> R$ {{this.fixPrice()}} </span>
         <span class="pharma-infos"><strong>Código:</strong> {{product.code}}</span>
         <span class="pharma-infos"><strong>Categoria:</strong> {{product.category.name}}</span>
         <span class="pharma-infos"><strong>Quantidade:</strong> {{product.amount}}</span>
@@ -15,6 +15,11 @@
         name: 'ProductDetailedItem',
         props: {
             product: Object
+        },
+        methods: {
+            fixPrice() {
+                return this.product.price.toFixed(2);
+            }
         }
     }
 </script>

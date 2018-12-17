@@ -2,7 +2,7 @@
     <div class="box-view">
         <span class="product-name"> {{product.name}} </span> 
         <span class="product-producer"> {{product.producer}} </span>
-        <span class="product-price" v-if="product.available"> R$ {{product.price.toFixed(2)}} </span>
+        <span class="product-price" v-if="product.available"> R$ {{this.fixPrice()}} </span>
         <span class="amount-warning" v-if="!product.available" > Indisponível </span>
     </div>
 </template>
@@ -12,6 +12,11 @@ export default {
     name: 'ProductItem',
     props: {
       product: Object
+    },
+    methods: {
+        fixPrice() {
+            return this.product.price.toFixed(2);
+        }
     }
 }
 </script>

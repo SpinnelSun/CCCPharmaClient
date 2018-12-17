@@ -6,7 +6,7 @@
                 <input v-model="product.name" id="input_name" required/>
 
                 <label for="input_price">Preço:</label>
-                <input v-model="product.price.toFixed(2)" id="input_price" required/>
+                <input v-model="this.fixPrice" id="input_price" required/>
 
                 <label for="input_producer">Fabricante:</label>
                 <input v-model="product.producer" id="input_producer" required/>
@@ -26,8 +26,12 @@
         props: {
             title: String,
             product: Object
+        },
+        methods: {
+            fixPrice() {
+                return this.product.price.toFixed(2);
+            }
         }
-        
     }
 </script>
 
