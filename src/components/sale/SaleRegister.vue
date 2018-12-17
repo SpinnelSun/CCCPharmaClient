@@ -41,7 +41,9 @@
         },
         async created() {
             const response = await getProducts();
-            this.products = response.data.content;
+            const content = response.data.content
+            
+            this.products = content.filter((product) => product.available);
         },
         methods:{
             addToShoppingCart() {
