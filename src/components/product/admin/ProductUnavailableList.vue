@@ -30,12 +30,16 @@
 </script>
 
 <style>
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+    @import url("https://fonts.googleapis.com/css?family=Lato");
+
     .products-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 2em;
+
         justify-content: space-around;
-        
         background-color:#FFFFFF;
     }
 

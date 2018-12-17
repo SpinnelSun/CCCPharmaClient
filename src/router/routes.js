@@ -16,7 +16,7 @@ import ProductList from '@/components/product/client/ProductList'
 import ProductUpdate from '@/components/product/admin/ProductUpdate'
 import ProductRegister from '@/components/product/admin/ProductRegister'
 import ProductDetailedList from '@/components/product/admin/ProductDetailedList'
-import ProductUnavailableList from '@/components/product/client/ProductUnavailableList'
+import ProductUnavailableList from '@/components/product/admin/ProductUnavailableList'
 
 Vue.use(Router)
 
