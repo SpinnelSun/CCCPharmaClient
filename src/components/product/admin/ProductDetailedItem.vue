@@ -6,7 +6,7 @@
         <span class="pharma-infos"><strong>Código:</strong> {{product.code}}</span>
         <span class="pharma-infos"><strong>Categoria:</strong> {{product.category.name}}</span>
         <span class="pharma-infos"><strong>Quantidade:</strong> {{product.amount}}</span>
-        <router-link id="edit-product" target="_blank" :to="`/products/${product.code}`">Editar</router-link>
+        <router-link id="edit-product" :to="`/products/${product.code}`">Editar</router-link>
     </div>
 </template>
 

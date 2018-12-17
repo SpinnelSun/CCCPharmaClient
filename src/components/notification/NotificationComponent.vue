@@ -1,6 +1,6 @@
 <template>
     <div class="notification">
-        <router-link class="notification-text" target="_blank" :to="`/products/${notification.code}`">
+        <router-link class="notification-text" :to="`/products/${notification.code}`">
             {{ notification.name }}
         </router-link>
     </div>
