@@ -11,7 +11,7 @@
             </select>
         </span>
         <div class="products-grid">
-            <div class="product-item" v-for="product in products" :key="product.code"> 
+            <div class="product-item" v-for="product in products" v-if="product.available" :key="product.code"> 
                 <product-detailed-item :product=product></product-detailed-item> 
             </div>
         </div>
@@ -96,4 +96,3 @@
         align-content: center;
     }
 </style>
-

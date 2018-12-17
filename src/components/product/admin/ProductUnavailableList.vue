@@ -2,14 +2,14 @@
     <div>
         <div class="products-grid">
             <div class="product-item" v-for="product in products" v-if="!product.available" :key="product.code"> 
-                <product-item :product=product></product-item> 
+                <product-detailed-item :product=product></product-detailed-item> 
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import ProductItem from '@/components/product/client/ProductItem'
+    import ProductDetailedItem from '@/components/product/admin/ProductDetailedItem'
     import { getProducts } from '@/services/productService'
     
     export default {
@@ -20,7 +20,7 @@
             }
         },
         components: {
-            ProductItem
+            ProductDetailedItem
         },
         async created() {
             const response = await getProducts();
@@ -36,10 +36,9 @@
     .products-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-row-gap: 2em;
-
+        grid-template-rows: repeat(8, 1fr);
         justify-content: space-around;
+        
         background-color:#FFFFFF;
     }
 
