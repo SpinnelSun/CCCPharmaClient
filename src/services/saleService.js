@@ -14,6 +14,12 @@ const getAllSales = () => {
                 .catch(error => error.response);
 }
 
+const getAllSalesSorted = (sortingAttribute) => {
+    return http.get(`${BASE_PATH}?sort=${sortingAttribute}`)
+                .then(response => response)
+                .catch(error => error.response);
+}
+
 const getSaleById = (id) => {
     return http.get(`${BASE_PATH}/${id}`)
                 .then(response => response)
@@ -30,5 +36,6 @@ export {
     save,
     getAllSales,
     getSaleById,
-    deleteSaleById
+    deleteSaleById,
+    getAllSalesSorted
 }

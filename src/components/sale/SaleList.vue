@@ -1,6 +1,10 @@
 <template>
     <div id="sale-list-container">
         <router-link id="register-sale-btn" :to="`/sale-register`">Cadastrar Nova Venda</router-link>
+        <select @change="sort" class="form-control" v-model="sortingAttribute">
+            <option value="id">Id</option>
+            <option value="cost">Total</option>
+        </select>
         <div class="list-header">
             <div class="column-header">ID</div>
             <div class="column-header">Total</div>
@@ -14,19 +18,25 @@
 </template>
 
 <script>
-    import { getAllSales } from '@/services/saleService'
+    import { getAllSales, getAllSalesSorted } from '@/services/saleService'
 
     export default {
         name: 'SaleList',
         data () {
             return {
-                sales: []
+                sales: [],
+                sortingAttribute: ''
             }
         },
         async created() {
-            const all = await getAllSales();
-            console.log(all);
-            this.sales = all.data.content;
+            const response = await getAllSales();
+            this.sales = response.data.content;
+        }, 
+        methods: {
+            async sort(){
+                const response = await getAllSalesSorted(this.sortingAttribute);
+                this.sales = response.data.content;
+            }
         }
     }
 </script>
