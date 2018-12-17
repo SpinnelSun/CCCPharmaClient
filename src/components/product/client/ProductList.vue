@@ -1,15 +1,13 @@
 <template>
     <div>
-        <div class="product-order">
+        <span class="product-order">
             <span> Listar por: </span>
             <select @change="sort" class="form-control" v-model="sortingAttribute">
-                <option value="code">Código</option>
                 <option value="name">Nome</option>
                 <option value="price">Preço</option>
-                <option value="producer">Fabricante</option>
                 <option value="category">Categoria</option>
             </select>
-        </div>
+        </span>
         <div class="products-grid">
             <div class="product-item" v-for="product in products" :key="product.code"> 
                 <product-item :product=product></product-item> 
@@ -48,25 +46,42 @@
 </script>
 
 <style>
-    .product-order{
-        align-items: center;
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+    @import url("https://fonts.googleapis.com/css?family=Lato");
 
-        border: 0.1em solid #242B3A;
-        border-radius: 1.5em; 
+    .product-order {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        border-radius: 1em; 
+
+        font-family: "Raleway";
+        font-weight: bold;
+        font-size: 1.1em;
 
         background-color: #242B3A;
         color: #FFFFFF;
 
-        grid-column-start: 2;
-
         padding: 1em 2em;
-        margin: 0.5em;
-        width: 20em;
-        height: 1em;
+        margin: 1em 5em;
     }
 
-    button{
-                justify-self: center;
+    select {
+        border: 0.1em solid #242B3A;
+
+        font-family: "Lato";
+        font-size: 1em;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+
+        padding: 0.2em 0.5em;
+        margin-left: 1em;
+    }
+
+    button {
+        justify-self: center;
         align-self: flex-start;
 
         border: 0.1em solid #242B3A;
