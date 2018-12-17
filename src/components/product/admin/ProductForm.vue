@@ -6,7 +6,7 @@
                 <input v-model="product.name" id="input_name" required/>
 
                 <label for="input_price">Preço:</label>
-                <input v-model="this.fixPrice" id="input_price" required/>
+                <input v-model="product.price" id="input_price" required/>
 
                 <label for="input_producer">Fabricante:</label>
                 <input v-model="product.producer" id="input_producer" required/>
@@ -26,6 +26,9 @@
         props: {
             title: String,
             product: Object
+        },
+        created() {
+            this.product.price = this.fixPrice();
         },
         methods: {
             fixPrice() {
