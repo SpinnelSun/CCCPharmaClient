@@ -1,10 +1,15 @@
 <template>
     <div id="sale-list-container">
         <router-link id="register-sale-btn" :to="`/sale-register`">Cadastrar Nova Venda</router-link>
-        <select @change="sort" class="form-control" v-model="sortingAttribute">
-            <option value="id">Id</option>
-            <option value="cost">Total</option>
-        </select>
+
+        <span class="sale-order">
+            <span> Listar por: </span>
+            <select @change="sort" class="form-control" v-model="sortingAttribute">
+                <option value="id">ID</option>
+                <option value="cost">Custo Total</option>
+            </select>
+        </span>
+        
         <div class="list-header">
             <div class="column-header">ID</div>
             <div class="column-header">Total</div>
@@ -50,15 +55,44 @@
         align-items: center;
     }
 
+    .sale-order {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 1em 1em 0em 0em; 
+
+        font-family: "Raleway";
+        text-align: center;
+        font-weight: bold;
+
+        background-color: #242B3A;
+        color: #FFFFFF;
+
+        padding-top: 1em;
+        width: 24em;
+    }
+
+    select {
+        border: 0.1em solid #242B3A;
+
+        font-family: "Lato";
+        font-size: 1em;
+
+        background-color: #FFFFFF;
+        color: #242B3A;
+
+        padding: 0.2em 0.5em 0.2em 0em;
+        margin-left: 1em;
+    }
+
     .list-header {
         display: inline-grid;
         justify-content: space-around;
         grid-template-columns: 1fr 1fr;
-        border-radius: 1em 1em 0em 0em;
-        
         align-content: center;
-        font-family: "Raleway";
         
+        font-family: "Raleway";
         text-align: center;
         font-weight: bold;
         font-size: 1.2em;
