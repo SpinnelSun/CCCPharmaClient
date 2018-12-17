@@ -4,9 +4,9 @@
             <span id="logo">CCCPharma</span>
         </div>
         <form v-on:submit.prevent="$emit('handleSubmit', user)">
-            <label for="input_email"> Email</label>
+            <label for="input_email">Usuário</label>
             <input v-model="user.email" id="input_email" required/>
-            <label for="input_password">Password</label>
+            <label for="input_password">Senha</label>
             <input v-model="user.password" type="password" id="input_password" required/>
             <button>{{ title }}</button>
         </form>
