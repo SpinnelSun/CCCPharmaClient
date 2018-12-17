@@ -28,7 +28,7 @@
             <div class="list-itens">
                 <sold-product v-for="soldProduct in sale.soldProducts" :key="soldProduct.product.code" v-bind:soldProduct="soldProduct"></sold-product>
             </div>
-        <div class="list-footer">""</div>
+        <div class="list-footer">-</div>
         </div>
 
     </div>
@@ -63,8 +63,6 @@
             addToShoppingCart() {
                 this.sale.soldProducts.push(this.soldProduct);
                 this.soldProduct = {};
-
-                alert("Produto adicionado à venda!");
             },
             async registerSale() {
                 const user = await findByEmail('client@gmail.com');
@@ -194,7 +192,8 @@
         background-color: #242B3A;
         color: #FFFFFF;
 
-        width: 37em;
+        margin-top: 1em;
+        width: 36.9em;
         height: 3em;
     }
 
@@ -205,7 +204,8 @@
         border-radius: 0em 0em 1em 1em;
 
         background-color: #242B3A;
+        color: #242B3A;
 
-        width: 44em;
+        width: 44.3em;
     }
 </style>
