@@ -1,6 +1,8 @@
 <template>
     <div class="notification">
-        <span class="notification-text">{{ notification.name }}</span>
+        <router-link class="notification-text" target="_blank" :to="`/products/${notification.code}`">
+            {{ notification.name }}
+        </router-link>
     </div>
 </template>
 
@@ -41,5 +43,10 @@
         
         padding: 1em;
         width: 80%;
+    }
+
+    .notification:hover, .notification-text:hover {
+        background-color: #242B3A;
+        color: #FFFFFF;
     }
 </style>
